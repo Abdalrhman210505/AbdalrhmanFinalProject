@@ -6,4 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".SignIn">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="100"
+        android:layout_height="17dp"
+        android:text="Sign In"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="58dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
