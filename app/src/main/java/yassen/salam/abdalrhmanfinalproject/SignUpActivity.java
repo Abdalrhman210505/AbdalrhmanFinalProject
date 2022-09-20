@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import com.google.android.material.textfield.TextInputEditText;
 
-public class SignUp extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
     private TextInputEditText hEmail;
     private TextInputEditText hPassword;
     private TextInputEditText hConfirm;

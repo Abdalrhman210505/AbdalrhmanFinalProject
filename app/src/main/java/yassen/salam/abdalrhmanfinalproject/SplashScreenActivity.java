@@ -1,14 +1,12 @@
 package yassen.salam.abdalrhmanfinalproject;
 
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class SplashScreen extends AppCompatActivity {
+public class SplashScreenActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +19,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 //to open new screen from current to next screen
-                Intent i=new Intent(SplashScreen.this,SignIn.class);
+                Intent i=new Intent(SplashScreenActivity.this, SignInActivty.class);
                 startActivity(i);
                 //to close current activity
                 finish();
