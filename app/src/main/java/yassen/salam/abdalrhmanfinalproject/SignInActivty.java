@@ -62,7 +62,7 @@ public class SignInActivty extends AppCompatActivity {
             isOk = false;
 
         }
-        if (password.length() >= 7) {
+        if (password.length() <= 7) {
             etPassword.setError("Password at least require 7 letters");
             isOk = false;
 
