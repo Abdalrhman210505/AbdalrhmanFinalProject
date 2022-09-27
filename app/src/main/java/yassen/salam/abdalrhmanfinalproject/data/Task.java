@@ -7,7 +7,9 @@ public class Task {
     private String TaskImportance; //to know about importance
     private String Owner; //name of task owner
 
+    public Task(){
 
+    }
     public String getKey() {
         return key;
     }
@@ -57,10 +59,9 @@ public class Task {
                 ", Owner='" + Owner + '\'' +
                 '}';
     }
+
 }
 
 
-public Task(){
-//another time
-}
+
 
