@@ -7,12 +7,12 @@
         <entry key="..\:/AbdalrhmanFinalProject/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/AbdalrhmanFinalProject/app/src/main/res/layout/activity_sign_in.xml" value="0.18461538461538463" />
         <entry key="..\:/AbdalrhmanFinalProject/app/src/main/res/layout/activity_sign_out.xml" value="0.3009833262077811" />
-        <entry key="..\:/AbdalrhmanFinalProject/app/src/main/res/layout/activity_sign_up.xml" value="0.18461538461538463" />
+        <entry key="..\:/AbdalrhmanFinalProject/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
         <entry key="..\:/AbdalrhmanFinalProject/app/src/main/res/layout/activity_splash_screen.xml" value="0.358695652173913" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -8,21 +8,21 @@
     tools:context=".MainActivity">
 
     <SearchView
-        android:id="@+id/srch"
+        android:id="@+id/SearchView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     </SearchView>
 
     <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="100dp"
-        android:layout_height="10dp"
+        android:id="@+id/imageButtonAdd"
+        android:layout_width="109dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <ListView
-        android:id="@+id/lv1"
+        android:id="@+id/List"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>
