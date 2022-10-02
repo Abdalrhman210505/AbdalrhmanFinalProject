@@ -3,6 +3,7 @@ package yassen.salam.abdalrhmanfinalproject;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,8 @@ public class SignUpActivity extends AppCompatActivity {
     private TextInputEditText hPassword;
     private TextInputEditText hConfirm;
     private Button btnsave;
+    private Button btncancel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +31,23 @@ public class SignUpActivity extends AppCompatActivity {
         hPassword = findViewById(R.id.hPass);
         hConfirm = findViewById(R.id.hConfirm);
         btnsave = findViewById(R.id.btnsave);
+        btncancel=findViewById(R.id.btncancel);
         btnsave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 checkandsave();
             }
         });
+        btncancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
-    private void checkandsave() {//تضع الايميل وكلمة المرور في متغيرات من نوع سترينج وتبدا بفحص ان كانت ملائمة والكلمات المرور مطابقة\
+
+    public void checkandsave() {//تضع الايميل وكلمة المرور في متغيرات من نوع سترينج وتبدا بفحص ان كانت ملائمة والكلمات المرور مطابقة\
 
         String email = hEmail.getText().toString();
         String password = hPassword.getText().toString();
