@@ -2,7 +2,6 @@ package yassen.salam.abdalrhmanfinalproject;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,9 +10,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.SearchView;
 
 public class MainActivity extends AppCompatActivity {
-private SearchView SearchView;
+private android.widget.SearchView SearchView;
 private ListView List;
 private ImageButton imageButtonAdd;
 
