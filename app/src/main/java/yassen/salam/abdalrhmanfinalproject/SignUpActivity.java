@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,6 +22,8 @@ public class SignUpActivity extends AppCompatActivity {
     private TextInputEditText hConfirm;
     private Button btnsave;
     private Button btncancel;
+    private FloatingActionButton bmail;
+
 
 
     @Override
@@ -32,6 +35,7 @@ public class SignUpActivity extends AppCompatActivity {
         hConfirm = findViewById(R.id.hConfirm);
         btnsave = findViewById(R.id.btnsave);
         btncancel=findViewById(R.id.btncancel);
+        bmail=findViewById(R.id.bmail);
         btnsave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
