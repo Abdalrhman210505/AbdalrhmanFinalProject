@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,7 +23,8 @@ public class SignUpActivity extends AppCompatActivity {
     private TextInputEditText hConfirm;
     private Button btnsave;
     private Button btncancel;
-    private FloatingActionButton bmail;
+    private CheckBox chT;
+    private CheckBox chS;
 
 
 
@@ -35,7 +37,8 @@ public class SignUpActivity extends AppCompatActivity {
         hConfirm = findViewById(R.id.hConfirm);
         btnsave = findViewById(R.id.btnsave);
         btncancel=findViewById(R.id.btncancel);
-        bmail=findViewById(R.id.bmail);
+        chT=findViewById(R.id.chT);
+        chS=findViewById(R.id.chS);
         btnsave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -49,13 +49,25 @@
             android:id="@+id/hConfirm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
             android:backgroundTint="#FFFFFF"
             android:drawableStart="@drawable/ic_baseline_replay_24"
             android:drawableLeft="@drawable/ic_baseline_replay_24"
             android:drawablePadding="5dp"
             android:hint="Confirm Password" />
+
     </com.google.android.material.textfield.TextInputLayout>
+
+    <CheckBox
+        android:id="@+id/chT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Teacher" />
+
+    <CheckBox
+        android:id="@+id/chS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Student" />
 
     <LinearLayout
         android:layout_width="match_parent"
