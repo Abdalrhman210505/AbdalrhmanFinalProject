@@ -7,38 +7,24 @@
     android:orientation="vertical"
     tools:context=".SignUpActivity">
 
-    <LinearLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton2"
-            android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/hEmail"
+            android:drawableStart="@drawable/email"
+            android:drawableLeft="@drawable/email"
+            android:drawablePadding="10dp"
+
+
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_weight="1"
-            android:background="#00FFFFFF"
-            android:backgroundTint="#00FFFFFF"
-            android:backgroundTintMode="multiply"
-            android:clickable="true"
-            app:backgroundTint="#00FFFFFF"
-            app:srcCompat="@android:drawable/sym_action_email" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="356dp"
-            android:layout_height="wrap_content">
+            android:backgroundTint="#FFFFFF"
+            android:hint="Email" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/hEmail"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="50dp"
-                android:backgroundTint="#FFFFFF"
-                android:hint="Email" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-    </LinearLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -46,9 +32,11 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/hPass"
+            android:drawableStart="@drawable/ic_baseline_vpn_key_24"
+            android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
+            android:drawablePadding="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:backgroundTint="#FDFDFD"
             android:hint="Password" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -60,6 +48,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/hConfirm"
             android:layout_width="match_parent"
+            android:drawableStart="@drawable/ic_baseline_replay_24"
+            android:drawableLeft="@drawable/ic_baseline_replay_24"
+            android:drawablePadding="5dp"
             android:layout_height="wrap_content"
             android:backgroundTint="#FFFFFF"
             android:hint="Confirm Password" />
