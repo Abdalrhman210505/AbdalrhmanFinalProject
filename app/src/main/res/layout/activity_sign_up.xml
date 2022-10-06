@@ -48,11 +48,12 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/hConfirm"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:backgroundTint="#FFFFFF"
             android:drawableStart="@drawable/ic_baseline_replay_24"
             android:drawableLeft="@drawable/ic_baseline_replay_24"
             android:drawablePadding="5dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#FFFFFF"
             android:hint="Confirm Password" />
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/btnsignin1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -15,12 +14,18 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            app:boxBackgroundColor="#00FFFFFF">
+
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:drawableStart="@drawable/email"
+                android:drawableLeft="@drawable/email"
+                android:drawablePadding="10dp"
                 android:hint="Email" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -28,21 +33,26 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:boxBackgroundColor="#00FFFFFF">
+
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:hint="Password" />
+            android:drawableStart="@drawable/ic_baseline_vpn_key_24"
+            android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
+            android:drawablePadding="10dp"
+            android:hint="Password"
+            app:boxBackgroundColor="#00FFFFFF" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF">
+        android:background="#00FFFFFF">
 
         <Button
             android:id="@+id/btnsignin"
@@ -50,8 +60,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="400dp"
             android:layout_weight="1"
-            android:backgroundTint="#E100FA"
-            android:text="Sign In" />
+            android:backgroundTint="#00E1FF"
+            android:text="Sign In"
+            android:textColor="#0C0C0C" />
 
         <Button
             android:id="@+id/btnsignup"
@@ -59,8 +70,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="400dp"
             android:layout_weight="1"
-            android:backgroundTint="#E91E1E"
-            android:text="Sign Up" />
+            android:backgroundTint="#F700FF"
+            android:text="Sign Up"
+            android:textColor="#000000" />
     </LinearLayout>
 
 </LinearLayout>
