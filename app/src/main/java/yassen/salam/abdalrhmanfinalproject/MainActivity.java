@@ -12,6 +12,8 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SearchView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity {
 private android.widget.SearchView SearchView;
 private ListView List;
@@ -52,8 +54,8 @@ private ImageButton imageButtonAdd;
         }
 
         else if(item.getItemId()==R.id.itmsignout){
-            Intent i = new Intent(MainActivity.this,SignInActivty.class);
-            startActivity(i);
+            FirebaseAuth.getInstance().signOut();
+            finish();
         }
         else if (item.getItemId()==R.id.itmhistory){
             Intent i = new Intent(MainActivity.this,History.class);
