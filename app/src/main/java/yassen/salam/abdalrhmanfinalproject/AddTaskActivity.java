@@ -48,34 +48,34 @@ btnSave.setOnClickListener(new View.OnClickListener() {
 
 
     private void checkandSave() {
+        //استخراج القيم من صفحة الاضافة
         String Title=etTitle.getText().toString();
         String subj=etSubject.getText().toString();
-        int imp=sbImportant.getProgress();
-        //استخراج رقم المميز للمستعمل
+         int imp=sbImportant.getProgress();
+        //بناء الكائن واعطائه قيم الصفات
         Task m=new Task();
         m.setTitle(Title);
         m.setSubject(subj);
         m.setTaskImportance(imp);
-        //
+        //استخراج رقم المميز للمستعمل
         String Owner= FirebaseAuth.getInstance().getCurrentUser().getUid();
-        m.setOwner();
+        m.setOwner(Owner);
     //للمهمة استخراج رقم المميز
-        String key= FirebaseDatabase.getInstance().getReference().child("Tasks").child(Owner);
+        String key= FirebaseDatabase.getInstance().getReference().child("Tasks").child(Owner).push().getKey();
         m.setKey(key);
         //حفظ بالخادم
         FirebaseDatabase.getInstance().getReference().child("Tasks").child(Owner).child(key).setValue(m).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
-                if(task.isSuccessful()){
+                if (task.isSuccessful()) {
                     finish();
                     Toast.makeText(AddTaskActivity.this, "Added Succesfully", Toast.LENGTH_SHORT).show();
 
-            }
+                }
                 Toast.makeText(AddTaskActivity.this, "Add Field", Toast.LENGTH_SHORT).show();
-        })
+            }
 
 
 
-    }
-}
+    });}
 }
