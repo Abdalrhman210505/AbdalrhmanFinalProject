@@ -38,7 +38,7 @@ public class Task {
         return TaskImportance;
     }
 
-    public void setTaskImportance(String taskImportance) {
+    public void setTaskImportance(int taskImportance) {
         TaskImportance = taskImportance;
     }
 
