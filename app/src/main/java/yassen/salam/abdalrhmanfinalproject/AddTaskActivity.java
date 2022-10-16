@@ -57,13 +57,17 @@ btnSave.setOnClickListener(new View.OnClickListener() {
         m.setTitle(Title);
         m.setSubject(subj);
         m.setTaskImportance(imp);
-        //استخراج رقم المميز للمستعمل
+        //استخراج رقم المميز للمستعملuid
+        //user that signed in previously
         String Owner= FirebaseAuth.getInstance().getCurrentUser().getUid();
         m.setOwner(Owner);
     //للمهمة استخراج رقم المميز
-        String key= FirebaseDatabase.getInstance().getReference().child("Tasks").child(Owner).push().getKey();
+        String key= FirebaseDatabase.getInstance().getReference().child("Tasks")//جذر جديد يتم تخزين المهمات بعده
+                //اضافة قيمة جديدة
+                .child(Owner).push().getKey();
         m.setKey(key);
         //حفظ بالخادم
+        //عنوان جذر شجرة المعطيات
         FirebaseDatabase.getInstance().getReference().child("Tasks").child(Owner).child(key).setValue(m).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
