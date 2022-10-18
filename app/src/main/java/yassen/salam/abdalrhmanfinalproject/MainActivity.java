@@ -1,8 +1,10 @@
 package yassen.salam.abdalrhmanfinalproject;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -54,8 +56,39 @@ private ImageButton imageButtonAdd;
         }
 
         else if(item.getItemId()==R.id.itmsignout){
-            FirebaseAuth.getInstance().signOut();
-            finish();
+
+           // FirebaseAuth.getInstance().signOut();
+            //finish();
+            //1.تحجهيز البناء للدايلوج
+            AlertDialog.Builder builder= new AlertDialog.Builder(this);
+            builder.setTitle("Confirm SignOut");
+            builder.setTitle("are you sure?");
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i)
+                {
+                    //اخفاء الديالوج
+                    dialogInterface.dismiss();
+                    //تسجيل الخروج من الحساب
+                    FirebaseAuth.getInstance().signOut();
+                    //الخروج من الشاشة
+                    finish();
+
+
+                    //اخفاء الديالوج
+                }
+            });
+            builder.setNegativeButton("no", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i)
+                {
+                    dialogInterface.cancel();
+                }
+            });
+            //dialouge building
+
+            AlertDialog dialog=builder.create();
+            dialog.show();
         }
         else if (item.getItemId()==R.id.itmhistory){
             Intent i = new Intent(MainActivity.this,History.class);

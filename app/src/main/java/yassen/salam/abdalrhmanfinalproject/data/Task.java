@@ -4,7 +4,7 @@ public class Task {
     private String key; //to identify the task by its own key
     private String Title;
     private String Subject;
-    private String TaskImportance; //to know about importance
+    private int TaskImportance; //to know about importance
     private String Owner; //name of task owner
 
     public Task(){
@@ -34,11 +34,11 @@ public class Task {
         Subject = subject;
     }
 
-    public String getTaskImportance() {
+    public int getTaskImportance() {
         return TaskImportance;
     }
 
-    public void setTaskImportance(String taskImportance) {
+    public void setTaskImportance(int taskImportance) {
         TaskImportance = taskImportance;
     }
 
@@ -59,6 +59,7 @@ public class Task {
                 ", Owner='" + Owner + '\'' +
                 '}';
     }
+
 }
 
 
