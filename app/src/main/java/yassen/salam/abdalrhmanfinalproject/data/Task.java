@@ -59,7 +59,6 @@ public class Task {
                 ", Owner='" + Owner + '\'' +
                 '}';
     }
-
 }
 
 

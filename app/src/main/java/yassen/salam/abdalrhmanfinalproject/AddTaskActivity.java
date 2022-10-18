@@ -51,7 +51,7 @@ btnSave.setOnClickListener(new View.OnClickListener() {
         //استخراج القيم من صفحة الاضافة
         String Title=etTitle.getText().toString();
         String subj=etSubject.getText().toString();
-         int imp=sbImportant.getProgress();
+        int imp=sbImportant.getProgress();
         //بناء الكائن واعطائه قيم الصفات
         Task m=new Task();
         m.setTitle(Title);
