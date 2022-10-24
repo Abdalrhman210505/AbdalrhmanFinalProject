@@ -15,6 +15,11 @@ import android.widget.ListView;
 import android.widget.SearchView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 private android.widget.SearchView SearchView;
@@ -99,6 +104,27 @@ private ImageButton imageButtonAdd;
         return true;
     }
     private void readTasksFromFireBase(){
+        //مؤشر لجذر قاعدة البيانات التابعة للمشروع
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        //نضيف listener لمراقبة ايتغيير يحدث تحت الجذر المحدد
+        //listener اي تغيير بقيمة صفة اوحذف او اضافة كائن يتم اعلام ال
+        //عندها يتم تحميل كل المعطيات الموجودة تحت الجذر
+        reference.child("Tasks").addValueEventListener(new ValueEventListener() {
+            /*
+            *دالة معالجة حدث عند تغيير اي قيمة
+            * parameter snapshot تحوي نسخة عن كل المعطيات تحت العنوان المراقب
+
+             */
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
 
     }
