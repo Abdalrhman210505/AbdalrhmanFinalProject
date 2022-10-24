@@ -48,6 +48,7 @@ private ImageButton imageButtonAdd;
         return true;
     }
 
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) { //when you select menu item they change the screen to another screen (if i select history the screen goes to history screen)
         if(item.getItemId()==R.id.itmsetting){
@@ -96,6 +97,10 @@ private ImageButton imageButtonAdd;
 
         }
         return true;
+    }
+    private void readTasksFromFireBase(){
+
+
     }
 
 

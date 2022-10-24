@@ -76,7 +76,7 @@ btnSave.setOnClickListener(new View.OnClickListener() {
                     Toast.makeText(AddTaskActivity.this, "Added Succesfully", Toast.LENGTH_SHORT).show();
 
                 }
-                Toast.makeText(AddTaskActivity.this, "Add Field", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddTaskActivity.this, "Add Field"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
             }
 
 
