@@ -21,7 +21,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import yassen.salam.abdalrhmanfinalproject.data.TaskAdapter;
+
 public class MainActivity extends AppCompatActivity {
+    //تجهيز وسيط 3.1
+    TaskAdapter taskAdapter;
+    ListView listView;
 private android.widget.SearchView SearchView;
 private ListView List;
 private ImageButton imageButtonAdd;
@@ -29,7 +34,13 @@ private ImageButton imageButtonAdd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //قوم ببناء شاشة التنسيق وكل الاكائنات التي تحويها
         setContentView(R.layout.activity_main);
+        //3.2 بناء الوسيط
+        taskAdapter=new TaskAdapter(getApplicationContext());
+        //تجهيز مؤشر لقائمة العرض
+        listView=findViewById(R.id.List);
+        //3.3 ربط قائمة العرض بالوسيط
         SearchView=findViewById(R.id.SearchView);
         List=findViewById(R.id.List);
         imageButtonAdd=findViewById(R.id.imageButtonAdd);
@@ -117,6 +128,8 @@ private ImageButton imageButtonAdd;
              */
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                //remove all tasks
+                taskAdapter.clear();
 
             }
 
