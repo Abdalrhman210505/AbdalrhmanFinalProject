@@ -14,8 +14,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import yassen.salam.abdalrhmanfinalproject.R;
-                  //وسيط فقط من نوع مهمات
-public class TaskAdapter extends ArrayAdapter<Task> {
+
+/**وسيط فقط من نوع مهمات
+ *
+ */
+public class TaskAdapter extends ArrayAdapter<Appointment> {
 
     public TaskAdapter(@NonNull Context context) {
         super(context, R.layout.task_item);
@@ -33,15 +36,16 @@ public class TaskAdapter extends ArrayAdapter<Task> {
         CheckBox checkbox=vitem.findViewById(R.id.checkbox);
         ImageView iinfo=vitem.findViewById(R.id.iinfo);
 //getting data source
-        final Task task=getItem(position);
+        final Appointment task=getItem(position);
         tvTitle.setText(task.getTitle());
         tvSubject.setText(task.getSubject());
         rb.setRating(task.getTaskImportance());
         checkbox.setChecked(false);
-        checkbox.setOnCheckedChangeListener;
+       // checkbox.setOnCheckedChangeListener;
 
         return vitem;
 
     }
 }
-}
+
+

@@ -17,6 +17,9 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+/**
+ * sign up
+ */
 public class SignUpActivity extends AppCompatActivity {
     private TextInputEditText hEmail;
     private TextInputEditText hPassword;
