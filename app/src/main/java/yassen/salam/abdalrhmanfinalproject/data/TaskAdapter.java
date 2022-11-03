@@ -36,10 +36,10 @@ public class TaskAdapter extends ArrayAdapter<Appointment> {
         CheckBox checkbox=vitem.findViewById(R.id.checkbox);
         ImageView iinfo=vitem.findViewById(R.id.iinfo);
 //getting data source
-        final Appointment task=getItem(position);
-        tvTitle.setText(task.getTitle());
-        tvSubject.setText(task.getSubject());
-        rb.setRating(task.getTaskImportance());
+        final Appointment appointment=getItem(position);
+        tvTitle.setText(appointment.getTitle());
+        tvSubject.setText(appointment.getSubject());
+        rb.setRating(appointment.getTaskImportance());
         checkbox.setChecked(false);
        // checkbox.setOnCheckedChangeListener;
 

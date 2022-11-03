@@ -54,6 +54,7 @@ public class SignUpActivity extends AppCompatActivity {
                 finish();
             }
         });
+
     }
 
 
@@ -62,7 +63,6 @@ public class SignUpActivity extends AppCompatActivity {
         String email = hEmail.getText().toString();
         String password = hPassword.getText().toString();
         String confirm = hConfirm.getText().toString();
-
         boolean isOk = true;//we added this para if all of condtions (email/pass) are ok it will remain true to change activity
         if (email.length() * password.length() * confirm.length() == 0) {
             hEmail.setError("one of the files are emtpy");

@@ -7,23 +7,18 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <SearchView
-        android:id="@+id/SearchView"
+    <ListView
+        android:id="@+id/List"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="678dp">
 
-    </SearchView>
+    </ListView>
 
     <ImageButton
         android:id="@+id/imageButtonAdd"
-        android:layout_width="109dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         app:srcCompat="@android:drawable/ic_input_add"
         tools:ignore="SpeakableTextPresentCheck" />
-
-    <ListView
-        android:id="@+id/List"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 </LinearLayout>
