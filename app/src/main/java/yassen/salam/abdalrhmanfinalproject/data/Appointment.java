@@ -1,7 +1,5 @@
 package yassen.salam.abdalrhmanfinalproject.data;
 
-import yassen.salam.abdalrhmanfinalproject.Date;
-
 public class Appointment {
     private String key; //to identify the task by its own key
     private String nameofstudent;

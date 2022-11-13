@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AbdalrhmanFinalProject/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.312" />
         <entry key="..\:/AbdalrhmanFinalProject/app/src/main/res/drawable/email.xml" value="0.2015" />
+        <entry key="..\:/AbdalrhmanFinalProject/app/src/main/res/drawable/ic_baseline_replay_24.xml" value="0.312" />
+        <entry key="..\:/AbdalrhmanFinalProject/app/src/main/res/drawable/ic_baseline_vpn_key_24.xml" value="0.312" />
+        <entry key="..\:/AbdalrhmanFinalProject/app/src/main/res/drawable/ic_driving1_background.xml" value="0.312" />
         <entry key="..\:/AbdalrhmanFinalProject/app/src/main/res/drawable/ic_launcher_background.xml" value="0.312" />
+        <entry key="..\:/AbdalrhmanFinalProject/app/src/main/res/layout/activity_add_appointment_actvity.xml" value="0.33" />
         <entry key="..\:/AbdalrhmanFinalProject/app/src/main/res/layout/activity_add_task.xml" value="0.3009833262077811" />
         <entry key="..\:/AbdalrhmanFinalProject/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/AbdalrhmanFinalProject/app/src/main/res/layout/activity_sign_in.xml" value="0.33" />
@@ -14,6 +19,9 @@
         <entry key="..\:/AbdalrhmanFinalProject/app/src/main/res/layout/addappointment.xml" value="0.35280797101449274" />
         <entry key="..\:/AbdalrhmanFinalProject/app/src/main/res/layout/task_item.xml" value="0.30012825994014536" />
         <entry key="..\:/AbdalrhmanFinalProject/app/src/main/res/menu/mainmenu.xml" value="0.3009833262077811" />
+        <entry key="..\:/AbdalrhmanFinalProject/app/src/main/res/mipmap-anydpi-v26/ic_driving1.xml" value="0.3385" />
+        <entry key="..\:/AbdalrhmanFinalProject/app/src/main/res/mipmap-anydpi-v26/ic_driving1_round.xml" value="0.3385" />
+        <entry key="..\:/AbdalrhmanFinalProject/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3385" />
       </map>
     </option>
   </component>
