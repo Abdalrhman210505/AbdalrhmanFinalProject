@@ -4,7 +4,7 @@ public class Appointment {
     private String key; //to identify the task by its own key
     private String nameofstudent;
     private String type;
-    private Date date; //to know about importance
+
     private String Owner; //name of task owner
 
     public String getKey() {
@@ -31,13 +31,6 @@ public class Appointment {
         this.type = type;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
 
     public String getOwner() {
         return Owner;
@@ -52,8 +45,7 @@ public class Appointment {
         return "Appointment{" +
                 "key='" + key + '\'' +
                 ", nameofstudent='" + nameofstudent + '\'' +
-                ", type='" + type + '\'' +
-                ", date=" + date +
+                ", type='" + type + '\''
                 ", Owner='" + Owner + '\'' +
                 '}';
     }
