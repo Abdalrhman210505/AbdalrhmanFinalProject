@@ -1,9 +1,61 @@
 package yassen.salam.abdalrhmanfinalproject.data;
 
+import java.util.Date;
+
 public class Appointment {
     private String key; //to identify the task by its own key
     private String nameofstudent;
     private String type;
+    private String Identity;
+    private String PhoneNumber;
+    private Date Time;
+    private Date Date;
+
+    @Override
+    public String toString() {
+        return "Appointment{" +
+                "key='" + key + '\'' +
+                ", nameofstudent='" + nameofstudent + '\'' +
+                ", type='" + type + '\'' +
+                ", Identity='" + Identity + '\'' +
+                ", PhoneNumber='" + PhoneNumber + '\'' +
+                ", Time=" + Time +
+                ", Date=" + Date +
+                ", Owner='" + Owner + '\'' +
+                '}';
+    }
+
+    public String getIdentity() {
+        return Identity;
+    }
+
+    public void setIdentity(String identity) {
+        Identity = identity;
+    }
+
+    public String getPhoneNumber() {
+        return PhoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        PhoneNumber = phoneNumber;
+    }
+
+    public java.util.Date getTime() {
+        return Time;
+    }
+
+    public void setTime(java.util.Date time) {
+        Time = time;
+    }
+
+    public java.util.Date getDate() {
+        return Date;
+    }
+
+    public void setDate(java.util.Date date) {
+        Date = date;
+    }
 
     private String Owner; //name of task owner
 
@@ -40,15 +92,7 @@ public class Appointment {
         Owner = owner;
     }
 
-    @Override
-    public String toString() {
-        return "Appointment{" +
-                "key='" + key + '\'' +
-                ", nameofstudent='" + nameofstudent + '\'' +
-                ", type='" + type + '\''
-                ", Owner='" + Owner + '\'' +
-                '}';
-    }
+
 }
 
 
