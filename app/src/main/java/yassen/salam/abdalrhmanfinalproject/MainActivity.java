@@ -9,10 +9,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.SearchView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -21,14 +19,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import yassen.salam.abdalrhmanfinalproject.data.TaskAdapter;
+import yassen.salam.abdalrhmanfinalproject.data.AppointmentAdapter;
 
 /**
  * MainActivity
  */
 public class MainActivity extends AppCompatActivity {
     //تجهيز وسيط 3.1
-    TaskAdapter taskAdapter;
+    AppointmentAdapter AppointmentAdapter;
     ListView listView;
 private android.widget.SearchView SearchView;
 private ListView List;
@@ -40,7 +38,7 @@ private ImageButton imageButtonAdd;
         //قوم ببناء شاشة التنسيق وكل الاكائنات التي تحويها
         setContentView(R.layout.activity_main);
         //3.2 بناء الوسيط
-        taskAdapter=new TaskAdapter(getApplicationContext());
+        AppointmentAdapter=new AppointmentAdapter(getApplicationContext());
         //تجهيز مؤشر لقائمة العرض
         listView=findViewById(R.id.List);
         //3.3 ربط قائمة العرض بالوسيط
@@ -127,7 +125,7 @@ private ImageButton imageButtonAdd;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 //remove all tasks
-                taskAdapter.clear();
+                AppointmentAdapter.clear();
 
             }
 

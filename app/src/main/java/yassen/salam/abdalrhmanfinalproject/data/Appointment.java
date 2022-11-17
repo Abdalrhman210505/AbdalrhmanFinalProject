@@ -10,20 +10,20 @@ public class Appointment {
     private String PhoneNumber;
     private Date Time;
     private Date Date;
+    private int NumberOfClass;
 
-    @Override
-    public String toString() {
-        return "Appointment{" +
-                "key='" + key + '\'' +
-                ", nameofstudent='" + nameofstudent + '\'' +
-                ", type='" + type + '\'' +
-                ", Identity='" + Identity + '\'' +
-                ", PhoneNumber='" + PhoneNumber + '\'' +
-                ", Time=" + Time +
-                ", Date=" + Date +
-                ", Owner='" + Owner + '\'' +
-                '}';
+
+    public int getNumberOfClass() {
+        return NumberOfClass;
     }
+
+    public void setNumberOfClass(int numberOfClass) {
+        NumberOfClass = numberOfClass;
+    }
+
+
+
+
 
     public String getIdentity() {
         return Identity;
@@ -92,7 +92,20 @@ public class Appointment {
         Owner = owner;
     }
 
-
+    @Override
+    public String toString() {
+        return "Appointment{" +
+                "key='" + key + '\'' +
+                ", nameofstudent='" + nameofstudent + '\'' +
+                ", type='" + type + '\'' +
+                ", Identity='" + Identity + '\'' +
+                ", PhoneNumber='" + PhoneNumber + '\'' +
+                ", Time=" + Time +
+                ", Date=" + Date +
+                ", NumberOfClass=" + NumberOfClass +
+                ", Owner='" + Owner + '\'' +
+                '}';
+    }
 }
 
 

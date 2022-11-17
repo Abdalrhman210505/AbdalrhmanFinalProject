@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Time" />
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Date" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name" />
+
+    <TextView
+        android:id="@+id/tvIdentity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Identity" />
+
+    <TextView
+        android:id="@+id/tvPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Phone" />
+
+    <TextView
+        android:id="@+id/tvType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Type" />
+
+    <TextView
+        android:id="@+id/tvNumberOfclass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Number Of Class" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CheckBox" />
+</LinearLayout>
