@@ -7,6 +7,7 @@ import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -15,8 +16,9 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.sql.Date;
-import java.sql.Time;
+
+import java.util.Calendar;
+import java.util.Date;
 
 import yassen.salam.abdalrhmanfinalproject.data.Appointment;
 
@@ -50,7 +52,38 @@ public class AddAppointmentActvity extends AppCompatActivity {
                 checkandSave();
             }
         });
+        etdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDateDialog();
+
+            }
+        });
     }
+
+    private void showDateDialog()
+    {
+     DatePickerDialog dp=new DatePickerDialog(this);
+     dp.setOnDateSetListener(new DatePickerDialog.OnDateSetListener() {
+         @Override
+         public void onDateSet(DatePicker datePicker, int d, int m, int y)
+         {
+          etdate.setText(d+"/"+m+"/"+y);
+
+
+         }
+     });
+     Date date=new Date();
+        Calendar c=Calendar.getInstance();
+        int y=c.get(Calendar.YEAR);
+        int d=c.get(Calendar.DAY_OF_MONTH);
+        int m=c.get(Calendar.MONTH);
+        dp.updateDate(y,m,d);
+        dp.show();
+
+    }
+
+
 
     private void checkandSave() {
         //استخراج القيم من صفحة الاضافة
@@ -58,23 +91,21 @@ public class AddAppointmentActvity extends AppCompatActivity {
         String Identity = etIdentity.getText().toString();
         String Phone = etPhone.getText().toString();
         String Type = etType.getText().toString();
-        String time =ettime.getText().toString();
-        String date=etdate.getText().toString();
+        String time = ettime.getText().toString();
+        String date = etdate.getText().toString();
         //بناء الكائن واعطائه قيم الصفات
-        Appointment m=new Appointment();
+        Appointment m = new Appointment();
         m.setNameofstudent(Name);
-        m.setDate(date);
         m.setIdentity(Identity);
-        m.setTime(time);
         m.setPhoneNumber(Phone);
         m.setType(Type);
         //استخراج رقم المميز UID
 //user that signed in previously
-        String Owner= FirebaseAuth.getInstance().getCurrentUser().getUid();
+        String Owner = FirebaseAuth.getInstance().getCurrentUser().getUid();
         m.setOwner(Owner);
         //استخراج رقم المميز لللقاء
-        String Key= FirebaseDatabase.getInstance().getReference().child("Appointments")//جذر جديد يتم تخزين المهمات بعده
-        //اضافة قيمة جديدة
+        String Key = FirebaseDatabase.getInstance().getReference().child("Appointments")//جذر جديد يتم تخزين المهمات بعده
+                //اضافة قيمة جديدة
                 .child(Owner).push().getKey();
         m.setKey(Key);
         //حفظ بالخادم
@@ -84,10 +115,9 @@ public class AddAppointmentActvity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
 
             }
-        }{
-        })
-    }
-}
 
+
+        });
+    }
 
 }
