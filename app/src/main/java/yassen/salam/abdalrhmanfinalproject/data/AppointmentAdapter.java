@@ -57,9 +57,9 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
         tvPhone.setText(appointment.getPhoneNumber());
         tvType.setText(appointment.getType());
         checkbox.setChecked(false);
-        checkbox.setOnCheckedChangeListener(new );
+       // checkbox.setOnCheckedChangeListener(new );
         checkbox2.setChecked(false);
-        checkbox2.setOnCheckedChangeListener();
+        //checkbox2.setOnCheckedChangeListener();
 
        // checkbox.setOnCheckedChangeListener;
 

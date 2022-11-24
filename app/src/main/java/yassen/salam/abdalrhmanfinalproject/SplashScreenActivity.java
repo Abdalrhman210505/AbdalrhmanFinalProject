@@ -5,18 +5,29 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SplashScreenActivity extends AppCompatActivity {
+private Button btnnext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);//يبني واجهةالمستخدم بحيث تبني كل الكائنات الموجودة بملف التنسيق
-
+        LoadingDialog loadingDialog=new LoadingDialog(SplashScreenActivity.this);
         setContentView(R.layout.activity_splash_screen);
         //start next activity (screen) automaically afer period of time فتح الشاشة التالية تلقائيا بعد فترة من الزمن
         Handler h=new Handler();
+       btnnext=findViewById(R.id.btnnext);
+       btnnext.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               loadingDialog.startLoadingDialog();
+               h.postDelayed(R)
+           }
+       });
         Runnable R=new Runnable() {
             @Override
             public void run() {
@@ -44,6 +55,7 @@ public class SplashScreenActivity extends AppCompatActivity {
              }
 
         };
+
 
         h.postDelayed(R,3000);
 
