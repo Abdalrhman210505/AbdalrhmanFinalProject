@@ -21,13 +21,7 @@ private Button btnnext;
         //start next activity (screen) automaically afer period of time فتح الشاشة التالية تلقائيا بعد فترة من الزمن
         Handler h=new Handler();
        btnnext=findViewById(R.id.btnnext);
-       btnnext.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               loadingDialog.startLoadingDialog();
-               h.postDelayed(R)
-           }
-       });
+
         Runnable R=new Runnable() {
             @Override
             public void run() {
@@ -55,9 +49,15 @@ private Button btnnext;
              }
 
         };
+        btnnext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadingDialog.startLoadingDialog();
+                h.postDelayed(R,6000);
+            }
+        });
 
 
-        h.postDelayed(R,3000);
 
 
     }

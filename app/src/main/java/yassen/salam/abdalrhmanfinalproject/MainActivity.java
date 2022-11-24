@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
@@ -45,7 +46,12 @@ private ImageButton imageButtonAdd;
         SearchView=findViewById(R.id.SearchView);
         List=findViewById(R.id.List);
         imageButtonAdd=findViewById(R.id.imageButtonAdd);
-
+    imageButtonAdd.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+        Intent i=new Intent(MainActivity.this,AddAppointmentActvity.class);
+        }
+    });
 
 
 
