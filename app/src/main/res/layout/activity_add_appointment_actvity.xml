@@ -7,24 +7,17 @@
     android:orientation="vertical"
     tools:context=".AddAppointmentActvity" >
 
-    <EditText
-        android:id="@+id/editTextTime2"
+    <Button
+        android:id="@+id/btndate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Time"
-        android:inputType="time" />
+        android:text="Date" />
 
-    <com.google.android.material.textfield.TextInputLayout
+    <Button
+        android:id="@+id/btntime"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Date" />
-    </com.google.android.material.textfield.TextInputLayout>
+        android:layout_height="wrap_content"
+        android:text="Time" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -69,6 +62,12 @@
             android:layout_height="wrap_content"
             android:hint="Type" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
 
     <LinearLayout
         android:layout_width="match_parent"
