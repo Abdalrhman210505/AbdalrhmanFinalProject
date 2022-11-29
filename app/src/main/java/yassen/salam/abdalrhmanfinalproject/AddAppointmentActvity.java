@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -29,7 +30,7 @@ public class AddAppointmentActvity extends AppCompatActivity {
     private TextInputEditText etIdentity;//identity number
     private TextInputEditText etPhone;//student phone number
     private TextInputEditText etType;//type of licence that student wants to learn
-    private Button btnSave;
+    private Button btnSave1;
     private Button btnCancel;
     //private DatePickerDialog.OnDateSetListener setListener;
 
@@ -44,9 +45,9 @@ public class AddAppointmentActvity extends AppCompatActivity {
         etIdentity = findViewById(R.id.etIdentity);
         etPhone = findViewById(R.id.etPhone);
         etType = findViewById(R.id.etType);
-        btnSave = findViewById(R.id.btnsave);
+        btnSave1 = findViewById(R.id.btnSave1);
         btnCancel = findViewById(R.id.btncancel);
-        btnSave.setOnClickListener(new View.OnClickListener() {
+        btnSave1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 checkandSave();
@@ -99,6 +100,9 @@ public class AddAppointmentActvity extends AppCompatActivity {
         m.setIdentity(Identity);
         m.setPhoneNumber(Phone);
         m.setType(Type);
+        m.setTime(time);
+        m.setDate(date);
+
         //استخراج رقم المميز UID
 //user that signed in previously
         String Owner = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -112,7 +116,14 @@ public class AddAppointmentActvity extends AppCompatActivity {
         //عنوان جذر شجرة معطيات
         FirebaseDatabase.getInstance().getReference().child("Appointments").child(Owner).child(Key).setValue(m).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
-            public void onComplete(@NonNull Task<Void> task) {
+            public void onComplete(@NonNull Appointment<Void> Appointment) {
+                if (Appointment.isSuccessful()) {
+                    finish();
+                    Toast.makeText(AddAppointmentActvity.this, "Added Succesfully", Toast.LENGTH_SHORT).show();
+
+                }
+                Toast.makeText(AddAppointmentActvity.this, "Add Field"+Appointment.getException().getMessage(), Toast.LENGTH_SHORT).show();
+            }
 
             }
 

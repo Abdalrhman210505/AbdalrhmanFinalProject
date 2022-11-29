@@ -83,7 +83,7 @@
             android:text="Cancel" />
 
         <Button
-            android:id="@+id/btnSave"
+            android:id="@+id/btnSave1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

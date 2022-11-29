@@ -46,10 +46,12 @@ private ImageButton imageButtonAdd;
         SearchView=findViewById(R.id.SearchView);
         List=findViewById(R.id.List);
         imageButtonAdd=findViewById(R.id.imageButtonAdd);
+        readTasksFromFireBase();
     imageButtonAdd.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
         Intent i=new Intent(MainActivity.this,AddAppointmentActvity.class);
+        startActivity(i);
         }
     });
 
@@ -117,12 +119,19 @@ private ImageButton imageButtonAdd;
         return true;
     }
     private void readTasksFromFireBase(){
+
+        String Owner = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        //استخراج رقم المميز لللقاء
+
         //مؤشر لجذر قاعدة البيانات التابعة للمشروع
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference reference1 = FirebaseDatabase.getInstance().getReference().child("Appointments")//جذر جديد يتم تخزين المهمات بعده
+                //اضافة قيمة جديدة
+                .child(Owner);
+
         //نضيف listener لمراقبة ايتغيير يحدث تحت الجذر المحدد
         //listener اي تغيير بقيمة صفة اوحذف او اضافة كائن يتم اعلام ال
         //عندها يتم تحميل كل المعطيات الموجودة تحت الجذر
-        reference.child("Tasks").addValueEventListener(new ValueEventListener() {
+        reference1.addValueEventListener(new ValueEventListener() {
             /*
             *دالة معالجة حدث عند تغيير اي قيمة
             * parameter snapshot تحوي نسخة عن كل المعطيات تحت العنوان المراقب

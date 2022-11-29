@@ -8,55 +8,9 @@ public class Appointment {
     private String type;
     private String Identity;
     private String PhoneNumber;
-    private Date Time;
-    private Date Date;
+    private String Time;
+    private String Date;
     private int NumberOfClass;
-
-
-    public int getNumberOfClass() {
-        return NumberOfClass;
-    }
-
-    public void setNumberOfClass(int numberOfClass) {
-        NumberOfClass = numberOfClass;
-    }
-
-
-
-
-
-    public String getIdentity() {
-        return Identity;
-    }
-
-    public void setIdentity(String identity) {
-        Identity = identity;
-    }
-
-    public String getPhoneNumber() {
-        return PhoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        PhoneNumber = phoneNumber;
-    }
-
-    public java.util.Date getTime() {
-        return Time;
-    }
-
-    public void setTime(java.util.Date time) {
-        Time = time;
-    }
-
-    public java.util.Date getDate() {
-        return Date;
-    }
-
-    public void setDate(java.util.Date date) {
-        Date = date;
-    }
-
     private String Owner; //name of task owner
 
     public String getKey() {
@@ -83,6 +37,45 @@ public class Appointment {
         this.type = type;
     }
 
+    public String getIdentity() {
+        return Identity;
+    }
+
+    public void setIdentity(String identity) {
+        Identity = identity;
+    }
+
+    public String getPhoneNumber() {
+        return PhoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        PhoneNumber = phoneNumber;
+    }
+
+    public String getTime() {
+        return Time;
+    }
+
+    public void setTime(String time) {
+        Time = time;
+    }
+
+    public String getDate() {
+        return Date;
+    }
+
+    public void setDate(String date) {
+        Date = date;
+    }
+
+    public int getNumberOfClass() {
+        return NumberOfClass;
+    }
+
+    public void setNumberOfClass(int numberOfClass) {
+        NumberOfClass = numberOfClass;
+    }
 
     public String getOwner() {
         return Owner;
