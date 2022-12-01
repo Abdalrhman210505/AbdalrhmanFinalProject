@@ -2,10 +2,14 @@ package yassen.salam.abdalrhmanfinalproject;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -33,7 +37,7 @@ import java.util.Date;
 
 import yassen.salam.abdalrhmanfinalproject.data.Appointment;
 
-public class AddAppointmentActvity extends AppCompatActivity implements LocationListener{
+public class AddAppointmentActvity extends AppCompatActivity implements LocationListener {
     private TextInputEditText etName;// name of student
     private Button btntime;
     private Button btndate;
@@ -49,35 +53,31 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
     TextView txtLat;
     String lat;
     String provider;
-    protected String latitude,longitude;
-    protected boolean gps_enabled,network_enabled;
+    protected String latitude, longitude;
+    protected boolean gps_enabled, network_enabled;
 
     //private DatePickerDialog.OnDateSetListener setListener;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        txtLat = (TextView) findViewById(R.id.textView1);
-
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
-    }
-    @Override
     public void onLocationChanged(Location location) {
-        txtLat = (TextView) findViewById(R.id.textView1);
-        txtLat.setText("Latitude:" + location.getLatitude() + ", Longitude:" + location.getLongitude());
+        if(txtLat!=null)
+          txtLat.setText("Latitude:" + location.getLatitude() + ", Longitude:" + location.getLongitude());
+        else
+        {
+            //Toast.makeText(context, "Location service is denied", Toast.LENGTH_SHORT).show();
+
+        }
     }
 
     @Override
     public void onProviderDisabled(String provider) {
-        Log.d("Latitude","disable");
+        Log.d("Latitude", "disable");
     }
 
     @Override
     public void onProviderEnabled(String provider) {
-        Log.d("Latitude","enable");
+        Log.d("Latitude", "enable");
     }
 
     @Override
@@ -96,8 +96,13 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
         etPhone = findViewById(R.id.etPhone);
         etType = findViewById(R.id.etType);
         btnSave1 = findViewById(R.id.btnSave1);
-        btnCancel = findViewById(R.id.btncancel);
+        btnCancel = findViewById(R.id.btnCancel);
+        setContentView(R.layout.activity_main);
+        txtLat =  findViewById(R.id.textView1);
 
+
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        initLoacation();
         btnSave1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -119,6 +124,45 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
         });
 
 
+    }
+
+    private void initLoacation() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 200);
+
+        }
+//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+//            // TODO: Consider calling
+//            //    ActivityCompat#requestPermissions
+//            // here to request the missing permissions, and then overriding
+//            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+//            //                                          int[] grantResults)
+//            // to handle the case where the user grants the permission. See the documentation
+//            // for ActivityCompat#requestPermissions for more details.
+//            return;
+//        }
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(grantResults[0]==PackageManager.PERMISSION_GRANTED && grantResults[1]==PackageManager.PERMISSION_GRANTED)
+        {
+            Toast.makeText(AddAppointmentActvity.this, "Permission Granted", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(AddAppointmentActvity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
+
+        }
     }
 
     private void showDateDialog()

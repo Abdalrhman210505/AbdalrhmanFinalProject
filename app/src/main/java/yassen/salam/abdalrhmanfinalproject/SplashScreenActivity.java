@@ -49,11 +49,12 @@ private Button btnnext;
              }
 
         };
+        //when u click button next a window appears with loading dialog
         btnnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 loadingDialog.startLoadingDialog();
-                h.postDelayed(R,6000);
+                h.postDelayed(R,4000);
             }
         });
 
