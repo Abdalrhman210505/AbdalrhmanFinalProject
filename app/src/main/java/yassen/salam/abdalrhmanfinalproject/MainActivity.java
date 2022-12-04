@@ -83,7 +83,7 @@ private ImageButton imageButtonAdd;
             //1.تحجهيز البناء للدايلوج
             AlertDialog.Builder builder= new AlertDialog.Builder(this);
             builder.setTitle("Confirm SignOut");
-            builder.setTitle("are you sure?");
+            builder.setTitle("Are You Sure?");
             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {//يضيف ال زر النعم
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i)

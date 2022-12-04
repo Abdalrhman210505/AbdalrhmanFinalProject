@@ -50,7 +50,7 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
     protected LocationManager locationManager;
     protected LocationListener locationListener;
     protected Context context;
-    TextView txtLat;
+    private TextView txtLat;
     String lat;
     String provider;
     protected String latitude, longitude;
@@ -97,7 +97,6 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
         etType = findViewById(R.id.etType);
         btnSave1 = findViewById(R.id.btnSave1);
         btnCancel = findViewById(R.id.btnCancel);
-        setContentView(R.layout.activity_main);
         txtLat =  findViewById(R.id.textView1);
 
 
@@ -136,7 +135,6 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
             // to handle the case where the user grants the permission. See the documentation
             // for ActivityCompat#requestPermissions for more details.
             requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 200);
-
         }
 //        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 //            // TODO: Consider calling
@@ -254,14 +252,15 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
 
 
             @Override
-            public void onComplete(@NonNull Task<Void> appointment) {
-                if (appointment.isSuccessful()) {
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
                     finish();
+
                     Toast.makeText(AddAppointmentActvity.this, "Added Succesfully", Toast.LENGTH_SHORT).show();
 
-                }
-                Toast.makeText(AddAppointmentActvity.this, "Add Field"+appointment.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                finish();
+                }else
+                Toast.makeText(AddAppointmentActvity.this, "Add Field"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+
             }
 
             }
