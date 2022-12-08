@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import yassen.salam.abdalrhmanfinalproject.data.Appointment;
 import yassen.salam.abdalrhmanfinalproject.data.AppointmentAdapter;
 
 /**
@@ -27,7 +28,7 @@ import yassen.salam.abdalrhmanfinalproject.data.AppointmentAdapter;
  */
 public class MainActivity extends AppCompatActivity {
     //تجهيز وسيط 3.1
-    AppointmentAdapter AppointmentAdapter;
+    AppointmentAdapter appointmentAdapter;
     ListView listView;
 private android.widget.SearchView SearchView;
 private ListView List;
@@ -39,12 +40,12 @@ private ImageButton imageButtonAdd;
         //قوم ببناء شاشة التنسيق وكل الاكائنات التي تحويها
         setContentView(R.layout.activity_main);
         //3.2 بناء الوسيط
-        AppointmentAdapter=new AppointmentAdapter(getApplicationContext());
+        appointmentAdapter =new AppointmentAdapter(getApplicationContext());
         //تجهيز مؤشر لقائمة العرض
         listView=findViewById(R.id.List);
+        listView.setAdapter(appointmentAdapter);
         //3.3 ربط قائمة العرض بالوسيط
         SearchView=findViewById(R.id.SearchView);
-        List=findViewById(R.id.List);
         imageButtonAdd=findViewById(R.id.imageButtonAdd);
         readTasksFromFireBase();
     imageButtonAdd.setOnClickListener(new View.OnClickListener() {
@@ -120,27 +121,29 @@ private ImageButton imageButtonAdd;
     }
     private void readTasksFromFireBase(){
 
-        String Owner = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        //استخراج رقم المميز لللقاء
-
         //مؤشر لجذر قاعدة البيانات التابعة للمشروع
-        DatabaseReference reference1 = FirebaseDatabase.getInstance().getReference().child("Appointments")//جذر جديد يتم تخزين المهمات بعده
-                //اضافة قيمة جديدة
-                .child(Owner);
+        DatabaseReference reference1 = FirebaseDatabase.getInstance().getReference();
 
-        //نضيف listener لمراقبة ايتغيير يحدث تحت الجذر المحدد
-        //listener اي تغيير بقيمة صفة اوحذف او اضافة كائن يتم اعلام ال
-        //عندها يتم تحميل كل المعطيات الموجودة تحت الجذر
-        reference1.addValueEventListener(new ValueEventListener() {
-            /*
+        String Owner = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+       FirebaseDatabase.getInstance().getReference().child("Appointments").
+       child(Owner).addValueEventListener(new ValueEventListener() {
+            /**
             *دالة معالجة حدث عند تغيير اي قيمة
             * parameter snapshot تحوي نسخة عن كل المعطيات تحت العنوان المراقب
 
-             */
+
+             **/
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                //remove all tasks
-                AppointmentAdapter.clear();
+                //remove all appointment
+                appointmentAdapter.clear();
+                //remove all thing
+                for (DataSnapshot d : snapshot.getChildren())//يمر على جميع مبنى المعطيات d
+                {
+                    Appointment value = d.getValue(Appointment.class);
+                appointmentAdapter.add(value);
+                }
 
             }
 

@@ -36,6 +36,7 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
         TextView tvDate=vitem.findViewById(R.id.tvDate);
         TextView tvType=vitem.findViewById(R.id.tvType);
         TextView tvPhone=vitem.findViewById(R.id.tvPhone);
+        TextView tvIdentity=vitem.findViewById(R.id.tvIdentity);
         TextView tvName=vitem.findViewById(R.id.tvName);
         TextView tvNumberOfclass=vitem.findViewById(R.id.tvNumberOfclass);
         CheckBox checkbox=vitem.findViewById(R.id.checkBox);
@@ -44,20 +45,21 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
 
 //getting data source
         final Appointment appointment=getItem(position);
-        tvName.setText(appointment.getNameofstudent());
+        tvName.setText("Name:  "+appointment.getNameofstudent());
 //day month year format (convert class date to string without any problems)
         String pattern = "dd/MM/yyyy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        String date = simpleDateFormat.format(appointment.getDate());
-
-        tvDate.setText(date);
+      //  String date = simpleDateFormat.format(appointment.getDate());
+//todo use as date object
+        tvDate.setText("Date:  "+appointment.getDate());
       //convert the time from class Time to string
         DateFormat dateFormat = DateFormat.getTimeInstance(DateFormat.DEFAULT);
-        String time = dateFormat.format(appointment.getTime());
-        tvTime.setText(time);
-        tvNumberOfclass.setText(appointment.getNumberOfClass());
-        tvPhone.setText(appointment.getPhoneNumber());
-        tvType.setText(appointment.getType());
+       // String time = dateFormat.format(appointment.getTime());
+        tvTime.setText("Time:  "+appointment.getTime());
+       // tvNumberOfclass.setText("NumberOfClass:  "+appointment.getNumberOfClass());
+        tvPhone.setText("PhoneNumber:  "+appointment.getPhoneNumber());
+        tvIdentity.setText("Identity:  "+appointment.getIdentity());
+        //tvType.setText("Type:"+appointment.getType());
         checkbox.setChecked(false);
         checkbox2.setChecked(false);
         if (tvType.equals("Manual")||tvType.equals("manual")){
