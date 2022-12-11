@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -50,6 +51,8 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
     protected LocationManager locationManager;
     protected LocationListener locationListener;
     protected Context context;
+    protected CheckBox cbManual;
+    protected CheckBox cbAutomatic;
     private TextView txtLat;
     String lat;
     String provider;
@@ -85,6 +88,7 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
         Log.d("Latitude", "status");
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,10 +98,13 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
         btndate = findViewById(R.id.btndate);
         etIdentity = findViewById(R.id.etIdentity);
         etPhone = findViewById(R.id.etPhone);
-        etType = findViewById(R.id.etType);
+        cbManual=findViewById(R.id.cbManual);
+        cbAutomatic = findViewById(R.id.cbAutomatic);
         btnSave1 = findViewById(R.id.btnSave1);
         btnCancel = findViewById(R.id.btnCancel);
         txtLat =  findViewById(R.id.textView1);
+        cbAutomatic.setChecked(false);
+        cbManual.setChecked(false);
 
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -225,7 +232,8 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
         String Name = etName.getText().toString();
         String Identity = etIdentity.getText().toString();
         String Phone = etPhone.getText().toString();
-        String Type = etType.getText().toString();
+        Boolean ManualType = cbManual.isChecked();
+        Boolean AutomaticType=cbAutomatic.isChecked();
         String time = btntime.getText().toString();
         String date = btndate.getText().toString();
         //بناء الكائن واعطائه قيم الصفات
@@ -233,7 +241,8 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
         m.setNameofstudent(Name);
         m.setIdentity(Identity);
         m.setPhoneNumber(Phone);
-        m.setType(Type);
+        m.setManualType(ManualType);
+        m.setAutomaticType(AutomaticType);
         m.setTime(time);
         m.setDate(date);
 
@@ -257,8 +266,8 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
                     finish();
 
                     Toast.makeText(AddAppointmentActvity.this, "Added Succesfully", Toast.LENGTH_SHORT).show();
-
-                }else
+                }
+                else
                 Toast.makeText(AddAppointmentActvity.this, "Add Field"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
 
             }
@@ -266,6 +275,7 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
             }
         );}
 
-    }
+
+}
 
 

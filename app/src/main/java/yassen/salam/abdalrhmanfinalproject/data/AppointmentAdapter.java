@@ -39,8 +39,6 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
         TextView tvIdentity=vitem.findViewById(R.id.tvIdentity);
         TextView tvName=vitem.findViewById(R.id.tvName);
         TextView tvNumberOfclass=vitem.findViewById(R.id.tvNumberOfclass);
-        CheckBox checkbox=vitem.findViewById(R.id.checkBox);
-        CheckBox checkbox2=vitem.findViewById(R.id.checkBox2);
          TextView textView1=vitem.findViewById(R.id.textView1);
 
 //getting data source
@@ -60,23 +58,16 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
         tvPhone.setText("PhoneNumber:  "+appointment.getPhoneNumber());
         tvIdentity.setText("Identity:  "+appointment.getIdentity());
         //tvType.setText("Type:"+appointment.getType());
-        checkbox.setChecked(false);
-        checkbox2.setChecked(false);
-        if (tvType.equals("Manual")||tvType.equals("manual")){
-            checkbox.setChecked(true);
-
+        if (appointment.getManualType()==true){
+            tvType.setText("Manual");
         }
-        if (tvType.equals("Automatic")||tvType.equals("automatic")){
-            checkbox.setChecked(true);
-
+        if (appointment.getAutomaticType()==true){
+            tvType.setText("Automatic");
         }
 
-       // checkbox.setChecked(false);
-        //checkbox.setOnCheckedChangeListener(new );
-        //checkbox2.setChecked(false);
-        //checkbox2.setOnCheckedChangeListener();
 
-        //checkbox.setOnCheckedChangeListener;
+
+
 
         return vitem;
 
