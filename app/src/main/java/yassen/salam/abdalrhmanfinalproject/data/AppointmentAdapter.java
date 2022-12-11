@@ -58,13 +58,12 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
         tvPhone.setText("PhoneNumber:  "+appointment.getPhoneNumber());
         tvIdentity.setText("Identity:  "+appointment.getIdentity());
         //tvType.setText("Type:"+appointment.getType());
-        if (appointment.getManualType()==true){
+       if (appointment.getManualType()){
             tvType.setText("Manual");
         }
-        if (appointment.getAutomaticType()==true){
+        if (appointment.getAutomaticType()){
             tvType.setText("Automatic");
         }
-
 
 
 

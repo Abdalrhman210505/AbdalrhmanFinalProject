@@ -36,6 +36,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import yassen.salam.abdalrhmanfinalproject.R;
 import yassen.salam.abdalrhmanfinalproject.data.Appointment;
 
 public class AddAppointmentActvity extends AppCompatActivity implements LocationListener {
@@ -78,7 +79,7 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
         Log.d("Latitude", "disable");
     }
 
-    @Override
+   @Override
     public void onProviderEnabled(String provider) {
         Log.d("Latitude", "enable");
     }
@@ -106,7 +107,18 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
         cbAutomatic.setChecked(false);
         cbManual.setChecked(false);
 
-
+    cbManual.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            cbManual.setChecked(true);
+        }
+    });
+    cbAutomatic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cbAutomatic.setChecked(true);
+            }
+        });
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         initLoacation();
         btnSave1.setOnClickListener(new View.OnClickListener() {
@@ -232,8 +244,8 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
         String Name = etName.getText().toString();
         String Identity = etIdentity.getText().toString();
         String Phone = etPhone.getText().toString();
-        Boolean ManualType = cbManual.isChecked();
         Boolean AutomaticType=cbAutomatic.isChecked();
+        Boolean ManualType=cbManual.isChecked();
         String time = btntime.getText().toString();
         String date = btndate.getText().toString();
         //بناء الكائن واعطائه قيم الصفات
