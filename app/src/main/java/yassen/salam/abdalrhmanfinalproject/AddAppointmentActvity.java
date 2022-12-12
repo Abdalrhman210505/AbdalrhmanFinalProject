@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -52,8 +53,8 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
     protected LocationManager locationManager;
     protected LocationListener locationListener;
     protected Context context;
-    protected CheckBox cbManual;
-    protected CheckBox cbAutomatic;
+    protected RadioButton rbManual;//
+    protected RadioButton rbAutomatic;
     private TextView txtLat;
     String lat;
     String provider;
@@ -99,26 +100,13 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
         btndate = findViewById(R.id.btndate);
         etIdentity = findViewById(R.id.etIdentity);
         etPhone = findViewById(R.id.etPhone);
-        cbManual=findViewById(R.id.cbManual);
-        cbAutomatic = findViewById(R.id.cbAutomatic);
         btnSave1 = findViewById(R.id.btnSave1);
         btnCancel = findViewById(R.id.btnCancel);
         txtLat =  findViewById(R.id.textView1);
-        cbAutomatic.setChecked(false);
-        cbManual.setChecked(false);
+        rbManual =findViewById(R.id.rbManual);
+        rbAutomatic =findViewById(R.id.rbAutomatic);
 
-    cbManual.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            cbManual.setChecked(true);
-        }
-    });
-    cbAutomatic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cbAutomatic.setChecked(true);
-            }
-        });
+
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         initLoacation();
         btnSave1.setOnClickListener(new View.OnClickListener() {
@@ -244,8 +232,7 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
         String Name = etName.getText().toString();
         String Identity = etIdentity.getText().toString();
         String Phone = etPhone.getText().toString();
-        Boolean AutomaticType=cbAutomatic.isChecked();
-        Boolean ManualType=cbManual.isChecked();
+        Boolean isManual=rbManual.isChecked();
         String time = btntime.getText().toString();
         String date = btndate.getText().toString();
         //بناء الكائن واعطائه قيم الصفات
@@ -253,10 +240,9 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
         m.setNameofstudent(Name);
         m.setIdentity(Identity);
         m.setPhoneNumber(Phone);
-        m.setManualType(ManualType);
-        m.setAutomaticType(AutomaticType);
         m.setTime(time);
         m.setDate(date);
+        m.setiSManualType(isManual);
 
         //استخراج رقم المميز UID
 //user that signed in previously

@@ -57,14 +57,16 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
        // tvNumberOfclass.setText("NumberOfClass:  "+appointment.getNumberOfClass());
         tvPhone.setText("PhoneNumber:  "+appointment.getPhoneNumber());
         tvIdentity.setText("Identity:  "+appointment.getIdentity());
-        //tvType.setText("Type:"+appointment.getType());
-       if (appointment.getManualType()){
-            tvType.setText("Manual");
-        }
-        if (appointment.getAutomaticType()){
-            tvType.setText("Automatic");
-        }
 
+        //if we pressed te radio button it will apear the type of Driving that u want
+
+     if (appointment.getiSManualType()){
+     tvType.setText("Type:  Manual");
+ }
+
+        if (appointment.getiSManualType()==false){
+            tvType.setText("Type:  Automatic");
+        }
 
 
 

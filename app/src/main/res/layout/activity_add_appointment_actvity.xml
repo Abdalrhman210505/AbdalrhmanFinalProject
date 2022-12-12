@@ -52,17 +52,22 @@
             android:hint="Phone" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <CheckBox
-        android:id="@+id/cbManual"
+    <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Manual" />
+        android:layout_height="wrap_content">
 
-    <CheckBox
-        android:id="@+id/cbAutomatic"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Automatic" />
+        <RadioButton
+            android:id="@+id/rbManual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Manual" />
+
+        <RadioButton
+            android:id="@+id/rbAutomatic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Automatic" />
+    </RadioGroup>
 
     <TextView
         android:id="@+id/textView1"

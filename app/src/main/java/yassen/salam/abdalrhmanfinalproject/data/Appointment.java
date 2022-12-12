@@ -5,8 +5,8 @@ import java.util.Date;
 public class Appointment {
     private String key; //to identify the task by its own key
     private String nameofstudent;
-    private Boolean AutomaticType;
-    private Boolean ManualType;
+    private Boolean iSManualType;// if it manual
+
     private String Identity;
     private String PhoneNumber;
     private String Time;
@@ -14,20 +14,12 @@ public class Appointment {
     private int NumberOfClass;
     private String Owner; //name of task owner
 
-    public Boolean getAutomaticType() {
-        return AutomaticType;
+    public Boolean getiSManualType() {
+        return iSManualType;
     }
 
-    public void setAutomaticType(Boolean automaticType) {
-        AutomaticType = automaticType;
-    }
-
-    public Boolean getManualType() {
-        return ManualType;
-    }
-
-    public void setManualType(Boolean manualType) {
-        ManualType = manualType;
+    public void setiSManualType(Boolean iSManualType) {
+        this.iSManualType = iSManualType;
     }
 
     public String getKey() {
@@ -100,8 +92,7 @@ public class Appointment {
         return "Appointment{" +
                 "key='" + key + '\'' +
                 ", nameofstudent='" + nameofstudent + '\'' +
-                ", AutomaticType='" + AutomaticType + '\'' +
-                ", ManualType='" + ManualType + '\'' +
+                ", iSManualType=" + iSManualType +
                 ", Identity='" + Identity + '\'' +
                 ", PhoneNumber='" + PhoneNumber + '\'' +
                 ", Time='" + Time + '\'' +
@@ -111,9 +102,6 @@ public class Appointment {
                 '}';
     }
 }
-
-
-
 
 
 
