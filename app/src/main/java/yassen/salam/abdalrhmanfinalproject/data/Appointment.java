@@ -10,7 +10,7 @@ public class Appointment {
     private String Identity;
     private String PhoneNumber;
     private String Time;
-    private String Date;
+    private Date Date;
     private int NumberOfClass;
     private String Owner; //name of task owner
 
@@ -63,11 +63,11 @@ public class Appointment {
         Time = time;
     }
 
-    public String getDate() {
+    public java.util.Date getDate() {
         return Date;
     }
 
-    public void setDate(String date) {
+    public void setDate(java.util.Date date) {
         Date = date;
     }
 

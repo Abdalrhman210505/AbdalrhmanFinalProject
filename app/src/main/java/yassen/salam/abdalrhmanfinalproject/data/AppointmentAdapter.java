@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
@@ -39,7 +40,9 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
         TextView tvIdentity=vitem.findViewById(R.id.tvIdentity);
         TextView tvName=vitem.findViewById(R.id.tvName);
         TextView tvNumberOfclass=vitem.findViewById(R.id.tvNumberOfclass);
-         TextView textView1=vitem.findViewById(R.id.textView1);
+        TextView textView1=vitem.findViewById(R.id.textView1);
+        Button bEdit=vitem.findViewById(R.id.bEdit);
+
 
 //getting data source
         final Appointment appointment=getItem(position);
@@ -63,6 +66,7 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
      if (appointment.getiSManualType()){
      tvType.setText("Type:  Manual");
  }
+//if we choose the other radio button the Manual will be false
 
         if (appointment.getiSManualType()==false){
             tvType.setText("Type:  Automatic");

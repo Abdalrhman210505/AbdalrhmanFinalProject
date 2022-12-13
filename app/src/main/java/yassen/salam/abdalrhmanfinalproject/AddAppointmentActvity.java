@@ -60,7 +60,7 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
     String provider;
     protected String latitude, longitude;
     protected boolean gps_enabled, network_enabled;
-
+    Appointment m = new Appointment();
     //private DatePickerDialog.OnDateSetListener setListener;
 
 
@@ -175,11 +175,15 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
      DatePickerDialog dp=new DatePickerDialog(this);
      dp.setOnDateSetListener(new DatePickerDialog.OnDateSetListener() {
          @Override
-         public void onDateSet(DatePicker datePicker, int d, int m, int y)
+         public void onDateSet(DatePicker datePicker, int d, int m1, int y)
          {
 
 
-             btndate.setText(d+"/"+m+"/"+y);
+             btndate.setText(d+"/"+m1+"/"+y);
+           m.getDate().setYear(y);
+           m.getDate().setMonth(m1);
+           m.getDate().setDate(d);
+
 
          }
 
@@ -212,6 +216,9 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
                     public void onTimeSet(TimePicker view, int hourOfDay,
                                           int minute) {
                         btntime.setText(hourOfDay + ":" + minute);
+                        m.getDate().setHours(mHour);
+                        m.getDate().setMinutes(mMinute);
+                        m.getDate().getSeconds();
 
                     }
                 }, mHour, mMinute, false);
@@ -234,14 +241,14 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
         String Phone = etPhone.getText().toString();
         Boolean isManual=rbManual.isChecked();
         String time = btntime.getText().toString();
-        String date = btndate.getText().toString();
+        //String date = btndate.getText().toString();
         //بناء الكائن واعطائه قيم الصفات
-        Appointment m = new Appointment();
+
         m.setNameofstudent(Name);
         m.setIdentity(Identity);
         m.setPhoneNumber(Phone);
         m.setTime(time);
-        m.setDate(date);
+       // m.setDate(date);
         m.setiSManualType(isManual);
 
         //استخراج رقم المميز UID
