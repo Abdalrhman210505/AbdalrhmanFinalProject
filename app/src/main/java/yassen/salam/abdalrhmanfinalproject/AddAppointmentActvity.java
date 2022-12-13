@@ -215,10 +215,10 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay,
                                           int minute) {
+
                         btntime.setText(hourOfDay + ":" + minute);
-                        m.getDate().setHours(mHour);
-                        m.getDate().setMinutes(mMinute);
-                        m.getDate().getSeconds();
+                        m.getDate().setHours(hourOfDay);
+                        m.getDate().setMinutes(minute);
 
                     }
                 }, mHour, mMinute, false);
@@ -263,7 +263,6 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
         //حفظ بالخادم
         //عنوان جذر شجرة معطيات
         FirebaseDatabase.getInstance().getReference().child("Appointments").child(Owner).child(Key).setValue(m).addOnCompleteListener(new OnCompleteListener<Void>() {
-
 
             @Override
             public void onComplete(@NonNull Task<Void> task) {

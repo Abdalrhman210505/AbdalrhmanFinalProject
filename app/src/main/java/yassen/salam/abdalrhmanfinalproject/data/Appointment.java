@@ -10,17 +10,9 @@ public class Appointment {
     private String Identity;
     private String PhoneNumber;
     private String Time;
-    private Date Date;
+    private Date date = new Date();
     private int NumberOfClass;
     private String Owner; //name of task owner
-
-    public Boolean getiSManualType() {
-        return iSManualType;
-    }
-
-    public void setiSManualType(Boolean iSManualType) {
-        this.iSManualType = iSManualType;
-    }
 
     public String getKey() {
         return key;
@@ -38,6 +30,13 @@ public class Appointment {
         this.nameofstudent = nameofstudent;
     }
 
+    public Boolean getiSManualType() {
+        return iSManualType;
+    }
+
+    public void setiSManualType(Boolean iSManualType) {
+        this.iSManualType = iSManualType;
+    }
 
     public String getIdentity() {
         return Identity;
@@ -63,12 +62,12 @@ public class Appointment {
         Time = time;
     }
 
-    public java.util.Date getDate() {
-        return Date;
+    public Date getDate() {
+        return date;
     }
 
-    public void setDate(java.util.Date date) {
-        Date = date;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public int getNumberOfClass() {
@@ -96,13 +95,9 @@ public class Appointment {
                 ", Identity='" + Identity + '\'' +
                 ", PhoneNumber='" + PhoneNumber + '\'' +
                 ", Time='" + Time + '\'' +
-                ", Date='" + Date + '\'' +
+                ", date=" + date +
                 ", NumberOfClass=" + NumberOfClass +
                 ", Owner='" + Owner + '\'' +
                 '}';
     }
 }
-
-
-
-
