@@ -1,8 +1,9 @@
 package yassen.salam.abdalrhmanfinalproject.data;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Appointment {
+public class Appointment implements Serializable {
     private String key; //to identify the task by its own key
     private String nameofstudent;
     private Boolean iSManualType;// if it manual
@@ -10,9 +11,18 @@ public class Appointment {
     private String Identity;
     private String PhoneNumber;
     private String Time;
+    private String Location;
     private Date date = new Date();
     private int NumberOfClass;
     private String Owner; //name of task owner
+
+    public String getLocation() {
+        return Location;
+    }
+
+    public void setLocation(String location) {
+        Location = location;
+    }
 
     public String getKey() {
         return key;
@@ -95,6 +105,7 @@ public class Appointment {
                 ", Identity='" + Identity + '\'' +
                 ", PhoneNumber='" + PhoneNumber + '\'' +
                 ", Time='" + Time + '\'' +
+                ", Location='" + Location + '\'' +
                 ", date=" + date +
                 ", NumberOfClass=" + NumberOfClass +
                 ", Owner='" + Owner + '\'' +

@@ -241,9 +241,10 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
         String Phone = etPhone.getText().toString();
         Boolean isManual=rbManual.isChecked();
         String time = btntime.getText().toString();
+        String Location = txtLat.getText().toString();
         //String date = btndate.getText().toString();
         //بناء الكائن واعطائه قيم الصفات
-
+        m.setLocation(Location);
         m.setNameofstudent(Name);
         m.setIdentity(Identity);
         m.setPhoneNumber(Phone);
@@ -270,16 +271,14 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
                     finish();
 
                     Toast.makeText(AddAppointmentActvity.this, "Added Succesfully", Toast.LENGTH_SHORT).show();
-                }
-                else
-                Toast.makeText(AddAppointmentActvity.this, "Add Field"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                } else
+                    Toast.makeText(AddAppointmentActvity.this, "Add Field" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
 
             }
 
-            }
-        );}
 
+        });
 
+    }
 }
-
 

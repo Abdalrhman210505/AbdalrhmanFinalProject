@@ -69,6 +69,8 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
         // tvNumberOfclass.setText("NumberOfClass:  "+appointment.getNumberOfClass());
         tvPhone.setText("PhoneNumber:  " + appointment.getPhoneNumber());
         tvIdentity.setText("Identity:  " + appointment.getIdentity());
+        textView1.setText("Location:  "+appointment.getLocation());
+
 
         //if we pressed te radio button it will apear the type of Driving that u want
 
@@ -86,7 +88,7 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
             public void onClick(View view) {
                 //because thats not an acivity so we use context
                 Intent i = new Intent(getContext(), AddAppointmentActvity.class);
-                i.putExtra("Appointment", appointment);//here the code send the same Object with same pr
+                i.putExtra("Appointment",appointment);//here the code send the same Object with same proporities
                 getContext().startActivity(i);
             }
         });
