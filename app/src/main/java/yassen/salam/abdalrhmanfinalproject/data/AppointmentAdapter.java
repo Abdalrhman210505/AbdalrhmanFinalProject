@@ -95,8 +95,7 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
         bDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseDatabase.getInstance().getReference()
-                        .child("Appointment").child(appointment.getOwner()).child(appointment.getKey()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                FirebaseDatabase.getInstance().getReference().child("Appointments").child(appointment.getOwner()).child(appointment.getKey()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
