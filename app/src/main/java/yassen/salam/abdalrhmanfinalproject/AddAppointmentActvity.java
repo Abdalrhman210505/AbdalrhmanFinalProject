@@ -115,6 +115,12 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
                 checkandSave();
             }
         });
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         btndate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
