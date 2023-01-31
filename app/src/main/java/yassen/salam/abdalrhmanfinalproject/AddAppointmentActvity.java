@@ -9,11 +9,13 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -49,6 +51,8 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
     private TextInputEditText etType;//type of licence that student wants to learn
     private Button btnSave1;
     private Button btnCancel;
+    private Boolean toEdit=false;
+
     //permissions list for current location
     protected LocationManager locationManager;
     protected LocationListener locationListener;
@@ -105,7 +109,16 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
         txtLat =  findViewById(R.id.textView1);
         rbManual =findViewById(R.id.rbManual);
         rbAutomatic =findViewById(R.id.rbAutomatic);
+    if (getIntent()!=null && getIntent().hasExtra("to edit")) {
+        toEdit = true;
+        m = (Appointment) getIntent().getExtras().get("to edit");
+        btnSave1.setText("update");
+        etPhone.setText(m.getPhoneNumber());
+        etIdentity.setText(m.getIdentity());
+        etName.setText(m.getNameofstudent());
 
+
+    }
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         initLoacation();
@@ -236,10 +249,6 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
 
 
 
-
-
-
-
     private void checkandSave() {
         //استخراج القيم من صفحة الاضافة
         String Name = etName.getText().toString();
@@ -275,6 +284,7 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
                     finish();
+                    addtogooglecalender();
 
                     Toast.makeText(AddAppointmentActvity.this, "Added Succesfully", Toast.LENGTH_SHORT).show();
                 } else
@@ -285,6 +295,21 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
 
         });
 
+    }
+
+    private void addtogooglecalender() {
+        Calendar beginTime = Calendar.getInstance();
+        beginTime.set(m.getDate().getYear(), m.getDate().getMonth(), m.getDate().getDay(), m.getDate().getHours(), m.getDate().getMinutes());
+        Calendar endTime = Calendar.getInstance();
+        endTime.set(m.getDate().getYear(), m.getDate().getMonth(), m.getDate().getDay(), m.getDate().getHours(), m.getDate().getMinutes());
+        Intent intent = new Intent(Intent.ACTION_INSERT)
+                .setData(CalendarContract.Events.CONTENT_URI)
+                .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime.getTimeInMillis())
+                .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTime.getTimeInMillis())
+                .putExtra(CalendarContract.Events.TITLE, "driving lessons:")
+                .putExtra(CalendarContract.Events.DESCRIPTION, "Event Description")
+                .putExtra(CalendarContract.Events.EVENT_LOCATION, "Event Location"+m.getLocation());
+        startActivity(intent);
     }
 }
 

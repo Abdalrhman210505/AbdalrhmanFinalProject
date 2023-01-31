@@ -92,7 +92,8 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
                 getContext().startActivity(i);
             }
         });
-        bDelete.setOnClickListener(new View.OnClickListener() {
+        bDelete.setOnClickListener(new View.OnClickListener() {// دالة تحذف الكائن appointment لتي اضيفت ل ال list
+            //function that delete the object
             @Override
             public void onClick(View view) {
                 FirebaseDatabase.getInstance().getReference().child("Appointments").child(appointment.getOwner()).child(appointment.getKey()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
