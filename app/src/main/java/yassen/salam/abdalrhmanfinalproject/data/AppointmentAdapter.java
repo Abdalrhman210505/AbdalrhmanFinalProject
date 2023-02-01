@@ -1,6 +1,7 @@
 package yassen.salam.abdalrhmanfinalproject.data;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,9 +14,11 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.Serializable;
@@ -97,7 +100,17 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
             //function that delete the object
             @Override
             public void onClick(View view) {
-                FirebaseDatabase.getInstance().getReference().child("Appointments").child(appointment.getOwner()).child(appointment.getKey()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle("Are u Sure u want to delete");
+                builder.setTitle("Are You Sure?");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {//يضيف ال زر النعم
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //اخفاء الديالوج
+                        dialogInterface.dismiss();
+                        //تسجيل الخروج من الحساب
+                        FirebaseDatabase.getInstance().getReference().child("Appointments").child(appointment.getOwner()).child(appointment.getKey()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
@@ -109,8 +122,24 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
 
 
                         });
+
+                        //اخفاء الديالوج
+                    }
+                });
+                builder.setNegativeButton("no", new DialogInterface.OnClickListener() {//يضيف زر ال no
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+                //dialouge building
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
             }
         });
+
 
 
         return vitem;

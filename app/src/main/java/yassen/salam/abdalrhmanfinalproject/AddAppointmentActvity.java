@@ -158,7 +158,7 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
            etPhone.setText(m.getPhoneNumber());
            btntime.setText(m.getTime());
            btndate.setText(m.getDate().toString());
-           etType.
+          // etType.
 
         }
 
