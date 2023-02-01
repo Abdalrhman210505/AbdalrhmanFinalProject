@@ -89,6 +89,7 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
                 //because thats not an acivity so we use context
                 Intent i = new Intent(getContext(), AddAppointmentActvity.class);
                 i.putExtra("Appointment",appointment);//here the code send the same Object with same proporities
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 getContext().startActivity(i);
             }
         });

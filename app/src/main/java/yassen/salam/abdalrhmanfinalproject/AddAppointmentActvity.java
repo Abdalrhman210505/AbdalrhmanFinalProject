@@ -153,6 +153,13 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
             toEdit = true;
             m = (Appointment) getIntent().getExtras().get("Appointment");
             btnSave1.setText("update");
+           etName.setText(m.getNameofstudent());
+           etIdentity.setText(m.getIdentity());
+           etPhone.setText(m.getPhoneNumber());
+           btntime.setText(m.getTime());
+           btndate.setText(m.getDate().toString());
+           etType.
+
         }
 
     }
