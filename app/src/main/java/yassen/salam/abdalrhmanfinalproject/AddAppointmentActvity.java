@@ -106,19 +106,14 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
         etPhone = findViewById(R.id.etPhone);
         btnSave1 = findViewById(R.id.btnSave1);
         btnCancel = findViewById(R.id.btnCancel);
-        txtLat =  findViewById(R.id.textView1);
-        rbManual =findViewById(R.id.rbManual);
-        rbAutomatic =findViewById(R.id.rbAutomatic);
-    if (getIntent()!=null && getIntent().hasExtra("to edit")) {
-        toEdit = true;
-        m = (Appointment) getIntent().getExtras().get("to edit");
-        btnSave1.setText("update");
+        txtLat = findViewById(R.id.textView1);
+        rbManual = findViewById(R.id.rbManual);
+        rbAutomatic = findViewById(R.id.rbAutomatic);
+
         etPhone.setText(m.getPhoneNumber());
         etIdentity.setText(m.getIdentity());
         etName.setText(m.getNameofstudent());
 
-
-    }
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         initLoacation();
@@ -148,6 +143,17 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
             }
         });
 
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (getIntent() != null && getIntent().hasExtra("Appointment")) {
+            toEdit = true;
+            m = (Appointment) getIntent().getExtras().get("Appointment");
+            btnSave1.setText("update");
+        }
 
     }
 
@@ -272,7 +278,10 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
         String Owner = FirebaseAuth.getInstance().getCurrentUser().getUid();
         m.setOwner(Owner);
         //استخراج رقم المميز لللقاء
-        String Key = FirebaseDatabase.getInstance().getReference().child("Appointments")//جذر جديد يتم تخزين المهمات بعده
+        //استخراج رقم المميز لللقاء
+        String Key=m.getKey();
+        if (toEdit==false)
+         Key = FirebaseDatabase.getInstance().getReference().child("Appointments")//جذر جديد يتم تخزين المهمات بعده
                 //اضافة قيمة جديدة
                 .child(Owner).push().getKey();
         m.setKey(Key);
