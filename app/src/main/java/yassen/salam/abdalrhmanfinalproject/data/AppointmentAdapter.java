@@ -1,5 +1,6 @@
 package yassen.salam.abdalrhmanfinalproject.data;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,7 +15,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
+//import androidx.appcompat.app.AlertDialog;
+//import androidx.appcompat.app.AlertDialog;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -100,7 +102,6 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
             //function that delete the object
             @Override
             public void onClick(View view) {
-
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());
                 builder1.setTitle("Are u Sure u want to delete");
                 builder1.setTitle("Are You Sure?");

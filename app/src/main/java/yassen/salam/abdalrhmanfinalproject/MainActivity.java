@@ -40,7 +40,7 @@ private ImageButton imageButtonAdd;
         //قوم ببناء شاشة التنسيق وكل الاكائنات التي تحويها
         setContentView(R.layout.activity_main);
         //3.2 بناء الوسيط
-        appointmentAdapter =new AppointmentAdapter(getApplicationContext());
+        appointmentAdapter =new AppointmentAdapter(MainActivity.this);
         //تجهيز مؤشر لقائمة العرض
         listView=findViewById(R.id.List);
         listView.setAdapter(appointmentAdapter);
