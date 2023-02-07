@@ -101,15 +101,16 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
             @Override
             public void onClick(View view) {
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setTitle("Are u Sure u want to delete");
-                builder.setTitle("Are You Sure?");
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {//يضيف ال زر النعم
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());
+                builder1.setTitle("Are u Sure u want to delete");
+                builder1.setTitle("Are You Sure?");
+                builder1.setPositiveButton("Yes", new DialogInterface.OnClickListener() {//يضيف ال زر النعم
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         //اخفاء الديالوج
                         dialogInterface.dismiss();
                         //تسجيل الخروج من الحساب
+
                         FirebaseDatabase.getInstance().getReference().child("Appointments").child(appointment.getOwner()).child(appointment.getKey()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
@@ -126,7 +127,7 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
                         //اخفاء الديالوج
                     }
                 });
-                builder.setNegativeButton("no", new DialogInterface.OnClickListener() {//يضيف زر ال no
+                builder1.setNegativeButton("no", new DialogInterface.OnClickListener() {//يضيف زر ال no
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.cancel();
@@ -134,8 +135,8 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
                 });
                 //dialouge building
 
-                AlertDialog dialog = builder.create();
-                dialog.show();
+                AlertDialog dialog1 = builder1.create();
+                dialog1.show();
 
             }
         });
