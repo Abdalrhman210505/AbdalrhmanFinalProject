@@ -7,6 +7,7 @@
     android:padding="50dp"
 
 
+
     >
 
     <ProgressBar
@@ -35,4 +36,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBar"
         app:layout_constraintVertical_bias="0.139" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -210,7 +210,7 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
          public void onDateSet(DatePicker datePicker, int d, int m1, int y)
          {
 
-
+            m1=m1+1;
              btndate.setText(d+"/"+m1+"/"+y);
            m.getDate().setYear(y);
            m.getDate().setMonth(m1);
