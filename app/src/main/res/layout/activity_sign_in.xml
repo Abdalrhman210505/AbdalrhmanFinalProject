@@ -5,31 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".SignInActivty">
+    tools:context=".SignInActivty"
+    android:background="@mipmap/ic_launcher_background"
+    >
 
-    <LinearLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        app:boxBackgroundColor="#00FFFFFF">
 
-        <com.google.android.material.textfield.TextInputLayout
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etEmail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#00FFFFFF"
-            app:boxBackgroundColor="#00FFFFFF">
+            android:layout_height="match_parent"
+            android:drawableStart="@drawable/email"
+            android:drawableLeft="@drawable/email"
+            android:drawablePadding="10dp"
+            android:hint="Email"
+            android:background="@mipmap/ic_launcher_background"/>
 
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etEmail"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawableStart="@drawable/email"
-                android:drawableLeft="@drawable/email"
-                android:drawablePadding="10dp"
-                android:hint="Email" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-    </LinearLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -45,14 +42,15 @@
             android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
             android:drawablePadding="10dp"
             android:hint="Password"
-            app:boxBackgroundColor="#00FFFFFF" />
+            android:background="@mipmap/ic_launcher_background" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#00FFFFFF">
+        android:layout_height="626dp"
+        android:background="#00FFFFFF"
+        >
 
         <Button
             android:id="@+id/btnsignin"

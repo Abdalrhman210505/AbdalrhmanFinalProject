@@ -4,8 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@mipmap/ic_launcher_background"
+    >
 
     <SearchView
         android:id="@+id/SearchView"
@@ -15,15 +18,17 @@
     <ListView
         android:id="@+id/List"
         android:layout_width="match_parent"
-        android:layout_height="477dp">
+        android:layout_height="634dp">
 
     </ListView>
 
     <ImageButton
         android:id="@+id/imageButtonAdd"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
+        android:backgroundTint="#00FFFFFF"
         app:srcCompat="@android:drawable/ic_input_add"
         tools:ignore="SpeakableTextPresentCheck" />
+
 </LinearLayout>

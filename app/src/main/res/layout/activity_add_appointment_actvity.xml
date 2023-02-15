@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AddAppointmentActvity" >
+    tools:context=".AddAppointmentActvity"
+    android:background="@mipmap/ic_launcher_background">
 
     <Button
         android:id="@+id/btndate"
@@ -21,12 +22,14 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:boxStrokeColor="#FFFFFF">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#00FFFFFF"
             android:hint="Name" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -38,6 +41,7 @@
             android:id="@+id/etIdentity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#00FFFFFF"
             android:hint="Identity" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -49,6 +53,7 @@
             android:id="@+id/etPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#00FFFFFF"
             android:hint="Phone" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,7 +83,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
 
         <Button
             android:id="@+id/btnCancel"
