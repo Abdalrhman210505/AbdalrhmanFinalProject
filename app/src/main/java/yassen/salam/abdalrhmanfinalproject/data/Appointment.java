@@ -1,28 +1,19 @@
 package yassen.salam.abdalrhmanfinalproject.data;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Appointment implements Serializable {
     private String key; //to identify the task by its own key
     private String nameofstudent;
     private Boolean iSManualType;// if it manual
-
     private String Identity;
     private String PhoneNumber;
-    private String Time;
     private String Location;
-    private Date date = new Date();
+    private long Time;
     private int NumberOfClass;
     private String Owner; //name of task owner
-
-    public String getLocation() {
-        return Location;
-    }
-
-    public void setLocation(String location) {
-        Location = location;
-    }
 
     public String getKey() {
         return key;
@@ -64,20 +55,20 @@ public class Appointment implements Serializable {
         PhoneNumber = phoneNumber;
     }
 
-    public String getTime() {
+    public String getLocation() {
+        return Location;
+    }
+
+    public void setLocation(String location) {
+        Location = location;
+    }
+
+    public long getTime() {
         return Time;
     }
 
-    public void setTime(String time) {
+    public void setTime(long time) {
         Time = time;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
     }
 
     public int getNumberOfClass() {
@@ -104,9 +95,8 @@ public class Appointment implements Serializable {
                 ", iSManualType=" + iSManualType +
                 ", Identity='" + Identity + '\'' +
                 ", PhoneNumber='" + PhoneNumber + '\'' +
-                ", Time='" + Time + '\'' +
                 ", Location='" + Location + '\'' +
-                ", date=" + date +
+                ", Time=" + Time +
                 ", NumberOfClass=" + NumberOfClass +
                 ", Owner='" + Owner + '\'' +
                 '}';
