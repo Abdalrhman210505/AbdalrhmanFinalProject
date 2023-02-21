@@ -11,6 +11,7 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.icu.text.SimpleDateFormat;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -35,6 +36,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
 import java.sql.Time;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -66,6 +68,7 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
     protected boolean gps_enabled, network_enabled;
     Appointment m = new Appointment();
     //private DatePickerDialog.OnDateSetListener setListener;
+    final Calendar calendar = Calendar.getInstance();
 
 
     @Override
@@ -156,8 +159,23 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
            etName.setText(m.getNameofstudent());
            etIdentity.setText(m.getIdentity());
            etPhone.setText(m.getPhoneNumber());
-           btntime.setText(m.getTime());
-           btndate.setText(m.getDate().toString());
+            Calendar instance = Calendar.getInstance();
+            instance.setTimeInMillis(m.getTime());
+            SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
+            Date date = null;
+            try {
+                date = sdf.parse(instance.getTime().toString());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            btntime.setText(date.toString());
+             sdf = new SimpleDateFormat("dd-M-yyyy");
+            try {
+                date = sdf.parse(instance.getTime().toString());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            btndate.setText(date.toString());
           // etType.
 
         }
@@ -212,15 +230,17 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
 
             m1=m1+1;
              btndate.setText(d+"/"+m1+"/"+y);
-           m.getDate().setYear(y);
-           m.getDate().setMonth(m1);
-           m.getDate().setDate(d);
-
-
+           calendar.set(Calendar.DAY_OF_MONTH, d);
+           calendar.set(Calendar.YEAR,y);
+           calendar.set(Calendar.MONTH,m1);
+            showTimeDialog();
          }
 
-
      });
+             Calendar.getInstance().get(Calendar.YEAR);
+        Calendar.getInstance().get(Calendar.MONTH);
+        Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+
         Date date=new Date();
         Calendar c=Calendar.getInstance();
         int y=c.get(Calendar.YEAR);
@@ -249,8 +269,8 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
                                           int minute) {
 
                         btntime.setText(hourOfDay + ":" + minute);
-                        m.getDate().setHours(hourOfDay);
-                        m.getDate().setMinutes(minute);
+                        calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                        calendar.set(Calendar.MINUTE, minute);
 
                     }
                 }, mHour, mMinute, false);
@@ -276,7 +296,7 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
         m.setNameofstudent(Name);
         m.setIdentity(Identity);
         m.setPhoneNumber(Phone);
-        m.setTime(time);
+      //  m.setTime(time);
        // m.setDate(date);
         m.setiSManualType(isManual);
 
@@ -315,9 +335,9 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
 
     private void addtogooglecalender() {
         Calendar beginTime = Calendar.getInstance();
-        beginTime.set(m.getDate().getYear(), m.getDate().getMonth(), m.getDate().getDay(), m.getDate().getHours(), m.getDate().getMinutes());
+        beginTime.set(calendar.getTime().getYear(), calendar.getTime().getMonth(), calendar.getTime().getDay(), calendar.getTime().getHours(), calendar.getTime().getMinutes());
         Calendar endTime = Calendar.getInstance();
-        endTime.set(m.getDate().getYear(), m.getDate().getMonth(), m.getDate().getDay(), m.getDate().getHours(), m.getDate().getMinutes());
+        endTime.set(calendar.getTime().getYear(), calendar.getTime().getMonth(), calendar.getTime().getDay(), calendar.getTime().getHours(), calendar.getTime().getMinutes());
         Intent intent = new Intent(Intent.ACTION_INSERT)
                 .setData(CalendarContract.Events.CONTENT_URI)
                 .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime.getTimeInMillis())

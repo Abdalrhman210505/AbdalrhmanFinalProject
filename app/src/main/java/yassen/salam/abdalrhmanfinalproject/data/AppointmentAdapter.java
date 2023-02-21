@@ -66,7 +66,7 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         //  String date = simpleDateFormat.format(appointment.getDate());
 //todo use as date object
-        tvDate.setText("Date:  " + appointment.getDate());
+        tvDate.setText("Date:  " + appointment.getTime());
         //convert the time from class Time to string
         DateFormat dateFormat = DateFormat.getTimeInstance(DateFormat.DEFAULT);
         // String time = dateFormat.format(appointment.getTime());
