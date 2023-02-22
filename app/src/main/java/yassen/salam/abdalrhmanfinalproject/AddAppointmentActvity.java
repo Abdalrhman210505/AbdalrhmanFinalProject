@@ -273,7 +273,7 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
                         calendar.set(Calendar.MINUTE, minute);
 
                     }
-                }, mHour, mMinute, false);
+                }, mHour, mMinute, true);
         timePickerDialog.show();
 
     }
@@ -290,13 +290,17 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
         Boolean isManual=rbManual.isChecked();
         String time = btntime.getText().toString();
         String Location = txtLat.getText().toString();
+        String date=btndate.getText().toString();
         //String date = btndate.getText().toString();
         //بناء الكائن واعطائه قيم الصفات
         m.setLocation(Location);
         m.setNameofstudent(Name);
         m.setIdentity(Identity);
         m.setPhoneNumber(Phone);
-      //  m.setTime(time);
+        m.setTime(calendar.getTimeInMillis());
+
+
+
        // m.setDate(date);
         m.setiSManualType(isManual);
 
@@ -335,9 +339,9 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
 
     private void addtogooglecalender() {
         Calendar beginTime = Calendar.getInstance();
-        beginTime.set(calendar.getTime().getYear(), calendar.getTime().getMonth(), calendar.getTime().getDay(), calendar.getTime().getHours(), calendar.getTime().getMinutes());
+        beginTime.setTimeInMillis(calendar.getTimeInMillis());
         Calendar endTime = Calendar.getInstance();
-        endTime.set(calendar.getTime().getYear(), calendar.getTime().getMonth(), calendar.getTime().getDay(), calendar.getTime().getHours(), calendar.getTime().getMinutes());
+        endTime.setTimeInMillis(calendar.getTimeInMillis());
         Intent intent = new Intent(Intent.ACTION_INSERT)
                 .setData(CalendarContract.Events.CONTENT_URI)
                 .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime.getTimeInMillis())

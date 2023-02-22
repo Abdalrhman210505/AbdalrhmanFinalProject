@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".SignUpActivity"
-    android:background="@mipmap/ic_launcher_background">
+    >
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
