@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Profile">
+
+    <EditText
+        android:id="@+id/proname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:text="Name" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_weight="0">
+
+        <RadioButton
+            android:id="@+id/prord1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Automatic" />
+
+        <RadioButton
+            android:id="@+id/prord2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Manual" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/prophone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:drawableLeft="@drawable/ic_baseline_phone_24"
+        android:text="PhoneNumber" />
+
+    <EditText
+        android:id="@+id/proidentity"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_weight="0"
+        android:drawableLeft="@drawable/ic_baseline_perm_identity_24"
+        android:text="Identity" />
+
+    <Button
+        android:id="@+id/bSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:text="Save" />
+</LinearLayout>

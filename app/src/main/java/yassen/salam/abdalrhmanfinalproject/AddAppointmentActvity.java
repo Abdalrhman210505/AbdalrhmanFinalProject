@@ -220,7 +220,7 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
         }
     }
 
-    private void showDateDialog()
+    private void showDateDialog()//thats a function that open calendar to choose the right date
     {
      DatePickerDialog dp=new DatePickerDialog(this);
      dp.setOnDateSetListener(new DatePickerDialog.OnDateSetListener() {
@@ -252,8 +252,7 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
 
     }
 
-
-    private void showTimeDialog(){
+    private void showTimeDialog(){//
         // Get Current Time
         final Calendar c = Calendar.getInstance();
 
@@ -321,7 +320,7 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
         FirebaseDatabase.getInstance().getReference().child("Appointments").child(Owner).child(Key).setValue(m).addOnCompleteListener(new OnCompleteListener<Void>() {
 
             @Override
-            public void onComplete(@NonNull Task<Void> task) {
+            public void onComplete(@NonNull Task<Void> task) {//when we check
                 if (task.isSuccessful()) {
                     finish();
                     addtogooglecalender();
@@ -332,11 +331,14 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
 
             }
 
-
         });
+
 
     }
 
+    /**
+     *
+     */
     private void addtogooglecalender() {
         Calendar beginTime = Calendar.getInstance();
         beginTime.setTimeInMillis(calendar.getTimeInMillis());

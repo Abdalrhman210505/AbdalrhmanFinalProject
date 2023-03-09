@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".AddAppointmentActvity"
-    android:background="@mipmap/ic_launcher_background">
+    >
 
     <Button
         android:id="@+id/btndate"
