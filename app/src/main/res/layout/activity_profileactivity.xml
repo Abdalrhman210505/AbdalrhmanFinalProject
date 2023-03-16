@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Profile">
+    tools:context=".ProfileActivity">
 
     <EditText
         android:id="@+id/proname"
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="0"
         android:drawableLeft="@drawable/ic_baseline_person_24"
-        android:text="Name" />
+        android:hint="Name" />
 
     <RadioGroup
         android:layout_width="match_parent"
@@ -24,13 +24,13 @@
             android:id="@+id/prord1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Automatic" />
+            android:hint="Automatic" />
 
         <RadioButton
             android:id="@+id/prord2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Manual" />
+            android:hint="Manual" />
     </RadioGroup>
 
     <EditText
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="0"
         android:drawableLeft="@drawable/ic_baseline_phone_24"
-        android:text="PhoneNumber" />
+        android:hint="PhoneNumber" />
 
     <EditText
         android:id="@+id/proidentity"
@@ -47,7 +47,7 @@
         android:layout_height="40dp"
         android:layout_weight="0"
         android:drawableLeft="@drawable/ic_baseline_perm_identity_24"
-        android:text="Identity" />
+        android:hint="Identity" />
 
     <Button
         android:id="@+id/bSave"

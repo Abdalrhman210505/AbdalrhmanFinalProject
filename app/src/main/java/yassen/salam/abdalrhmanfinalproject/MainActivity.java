@@ -78,6 +78,11 @@ private ImageButton imageButtonAdd;
             startActivity(i);
         }
 
+        if (item.getItemId()==R.id.itmprofile){
+            Intent i=new Intent(MainActivity.this,ProfileActivity.class);
+            startActivity(i);
+        }
+
         else if(item.getItemId()==R.id.itmsignout){
 
            // FirebaseAuth.getInstance().signOut();

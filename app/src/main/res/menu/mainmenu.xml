@@ -15,4 +15,7 @@
     <item
         android:id="@+id/itmsignout"
         android:title="SignOut" />
+    <item
+        android:id="@+id/itmprofile"
+        android:title="Profile" />
 </menu>
