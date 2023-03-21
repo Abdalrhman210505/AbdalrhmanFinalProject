@@ -27,6 +27,8 @@ private RadioButton prord1;
 private RadioButton prord2;
 private EditText proidentity;
 private Button bSave;
+Profile profile=null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +61,7 @@ private Button bSave;
         profile.setRbAutomatic(Automatic);
         profile.setRbManual(Manual);
         profile.setName(Name);
-        FirebaseDatabase.getInstance().getReference().child("profile").child(owner).setValue(profile).addOnCompleteListener(new OnCompleteListener<Void>() {
+        FirebaseDatabase.getInstance().getReference().child("profile").child(owner).child(owner).setValue(profile).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
@@ -79,12 +81,12 @@ private Button bSave;
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 snapshot.getChildren();
                 for (DataSnapshot d:snapshot.getChildren()){
-                    Profile profile1=d.getValue(Profile.class);
-                    proidentity.setText(profile1.getIdentity());
-                    prophone.setText(profile1.getPhoneNumber());
-                    proName.setText(profile1.getName());
-                    prord1.setText(profile1.getRbAutomatic().toString());
-                    prord2.setText(profile1.getRbManual().toString());
+                    profile=d.getValue(Profile.class);
+                    proidentity.setText(profile.getIdentity());
+                    prophone.setText(profile.getPhoneNumber());
+                    proName.setText(profile.getName());
+                    prord1.setText(profile.getRbAutomatic().toString());
+                    prord2.setText(profile.getRbManual().toString());
 
                 }
             }

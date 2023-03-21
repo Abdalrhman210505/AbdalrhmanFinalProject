@@ -48,7 +48,7 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
     private TextInputEditText etName;// name of student
     private Button btntime;
     private Button btndate;
-    private TextInputEditText etIdentity;//identity number
+
     private TextInputEditText etPhone;//student phone number
     private TextInputEditText etType;//type of licence that student wants to learn
     private Button btnSave1;
@@ -102,20 +102,14 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_appointment_actvity);
-        etName = findViewById(R.id.etName);
+
         btntime = findViewById(R.id.btntime);
         btndate = findViewById(R.id.btndate);
-        etIdentity = findViewById(R.id.etIdentity);
-        etPhone = findViewById(R.id.etPhone);
+
         btnSave1 = findViewById(R.id.btnSave1);
         btnCancel = findViewById(R.id.btnCancel);
         txtLat = findViewById(R.id.textView1);
-        rbManual = findViewById(R.id.rbManual);
-        rbAutomatic = findViewById(R.id.rbAutomatic);
 
-        etPhone.setText(m.getPhoneNumber());
-        etIdentity.setText(m.getIdentity());
-        etName.setText(m.getNameofstudent());
 
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -156,20 +150,18 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
             toEdit = true;
             m = (Appointment) getIntent().getExtras().get("Appointment");
             btnSave1.setText("update");
-           etName.setText(m.getNameofstudent());
-           etIdentity.setText(m.getIdentity());
-           etPhone.setText(m.getPhoneNumber());
             Calendar instance = Calendar.getInstance();
             instance.setTimeInMillis(m.getTime());
-            SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
             Date date = null;
             try {
+                 date = null;
                 date = sdf.parse(instance.getTime().toString());
             } catch (ParseException e) {
                 e.printStackTrace();
             }
             btntime.setText(date.toString());
-             sdf = new SimpleDateFormat("dd-M-yyyy");
+             sdf = new SimpleDateFormat("dd-MM-yyyy");
             try {
                 date = sdf.parse(instance.getTime().toString());
             } catch (ParseException e) {
@@ -283,25 +275,19 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
 
     private void checkandSave() {
         //استخراج القيم من صفحة الاضافة
-        String Name = etName.getText().toString();
-        String Identity = etIdentity.getText().toString();
-        String Phone = etPhone.getText().toString();
-        Boolean isManual=rbManual.isChecked();
+
+
         String time = btntime.getText().toString();
         String Location = txtLat.getText().toString();
         String date=btndate.getText().toString();
         //String date = btndate.getText().toString();
         //بناء الكائن واعطائه قيم الصفات
         m.setLocation(Location);
-        m.setNameofstudent(Name);
-        m.setIdentity(Identity);
-        m.setPhoneNumber(Phone);
         m.setTime(calendar.getTimeInMillis());
 
 
 
-       // m.setDate(date);
-        m.setiSManualType(isManual);
+
 
         //استخراج رقم المميز UID
 //user that signed in previously
@@ -339,7 +325,7 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
     /**
      *
      */
-    private void addtogooglecalender() {
+    private void addtogooglecalender() {//function that puts the Appointment in GoogleCalendar
         Calendar beginTime = Calendar.getInstance();
         beginTime.setTimeInMillis(calendar.getTimeInMillis());
         Calendar endTime = Calendar.getInstance();

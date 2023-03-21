@@ -49,7 +49,7 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
         TextView tvTime = vitem.findViewById(R.id.tvTime);
         TextView tvDate = vitem.findViewById(R.id.tvDate);
         TextView tvType = vitem.findViewById(R.id.tvType);
-        TextView tvPhone = vitem.findViewById(R.id.tvPhone);
+
         TextView tvIdentity = vitem.findViewById(R.id.tvIdentity);
         TextView tvName = vitem.findViewById(R.id.tvName);
         TextView tvNumberOfclass = vitem.findViewById(R.id.tvNumberOfclass);
@@ -72,21 +72,15 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
         // String time = dateFormat.format(appointment.getTime());
         tvTime.setText("Time:  " + appointment.getTime());
         // tvNumberOfclass.setText("NumberOfClass:  "+appointment.getNumberOfClass());
-        tvPhone.setText("PhoneNumber:  " + appointment.getPhoneNumber());
         tvIdentity.setText("Identity:  " + appointment.getIdentity());
         textView1.setText("Location:  "+appointment.getLocation());
 
 
-        //if we pressed te radio button it will apear the type of Driving that u want
 
-        if (appointment.getiSManualType()) {
-            tvType.setText("Type:  Manual");
-        }
-//if we choose the other radio button the Manual will be false
 
-        if (appointment.getiSManualType() == false) {
-            tvType.setText("Type:  Automatic");
-        }
+
+
+
 
         bEdit.setOnClickListener(new View.OnClickListener() {
             @Override
