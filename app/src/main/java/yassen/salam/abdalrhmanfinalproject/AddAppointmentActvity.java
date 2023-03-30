@@ -276,7 +276,6 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
     private void checkandSave() {
         //استخراج القيم من صفحة الاضافة
 
-
         String time = btntime.getText().toString();
         String Location = txtLat.getText().toString();
         String date=btndate.getText().toString();
@@ -284,7 +283,7 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
         //بناء الكائن واعطائه قيم الصفات
         m.setLocation(Location);
         m.setTime(calendar.getTimeInMillis());
-
+        //m.setNameofstudent();
 
 
 
@@ -332,8 +331,8 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
         endTime.setTimeInMillis(calendar.getTimeInMillis());
         Intent intent = new Intent(Intent.ACTION_INSERT)
                 .setData(CalendarContract.Events.CONTENT_URI)
-                .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime.getTimeInMillis())
-                .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTime.getTimeInMillis())
+                .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime)
+                .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTime)
                 .putExtra(CalendarContract.Events.TITLE, "driving lessons:")
                 .putExtra(CalendarContract.Events.DESCRIPTION, "Event Description")
                 .putExtra(CalendarContract.Events.EVENT_LOCATION, "Event Location"+m.getLocation());
