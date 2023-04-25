@@ -64,13 +64,13 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
 //day month year format (convert class date to string without any problems)
         String pattern = "dd/MM/yyyy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        //  String date = simpleDateFormat.format(appointment.getDate());
+         String date = simpleDateFormat.format(appointment.getTime());
 //todo use as date object
-        tvDate.setText("Date:  " + appointment.getTime());
+        tvDate.setText("Date:  " + date);
         //convert the time from class Time to string
         DateFormat dateFormat = DateFormat.getTimeInstance(DateFormat.DEFAULT);
-        // String time = dateFormat.format(appointment.getTime());
-        tvTime.setText("Time:  " + appointment.getTime());
+         String time = dateFormat.format(appointment.getTime());
+        tvTime.setText("Time:  " + time);
         // tvNumberOfclass.setText("NumberOfClass:  "+appointment.getNumberOfClass());
         tvIdentity.setText("Identity:  " + appointment.getIdentity());
         textView1.setText("Location:  "+appointment.getLocation());

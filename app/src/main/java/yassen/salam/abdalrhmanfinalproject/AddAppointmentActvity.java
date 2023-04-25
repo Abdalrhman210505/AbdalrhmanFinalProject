@@ -1,5 +1,7 @@
 package yassen.salam.abdalrhmanfinalproject;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -35,6 +37,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 
+import java.io.IOException;
 import java.sql.Time;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -338,5 +341,27 @@ public class AddAppointmentActvity extends AppCompatActivity implements Location
                 .putExtra(CalendarContract.Events.EVENT_LOCATION, "Event Location"+m.getLocation());
         startActivity(intent);
     }
+    /* private void deleteevenntgooglecalendar(){
+        // Set up the Google Calendar API client
+        Calendar calendarService = new Calendar.Builder(
+                AndroidHttp.newCompatibleTransport(),
+                JacksonFactory.getDefaultInstance(),
+                credential)
+                .setApplicationName("YourAppName")
+                .build();
+
+// Specify the ID of the event you want to delete
+        String eventId = "your_event_id";
+
+        try {
+            // Delete the event using the Events API
+            calendarService.event().delete("primary", eventId).execute();
+            // Log a message to confirm that the event was deleted
+            Log.d(TAG, "Event deleted: " + eventId);
+        } catch (IOException e) {
+            // Handle any errors that may occur during the API call
+            e.printStackTrace();
+        }
+    }*/
 }
 

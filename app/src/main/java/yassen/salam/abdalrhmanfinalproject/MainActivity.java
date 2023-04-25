@@ -47,7 +47,7 @@ private ImageButton imageButtonAdd;
         //3.3 ربط قائمة العرض بالوسيط
         SearchView=findViewById(R.id.SearchView);
         imageButtonAdd=findViewById(R.id.imageButtonAdd);
-        readTasksFromFireBase();
+        readappointmentFromFireBase();
     imageButtonAdd.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -125,7 +125,7 @@ private ImageButton imageButtonAdd;
         }
         return true;
     }
-    private void readTasksFromFireBase(){
+    private void readappointmentFromFireBase(){
 
         //مؤشر لجذر قاعدة البيانات التابعة للمشروع
         DatabaseReference reference1 = FirebaseDatabase.getInstance().getReference();
